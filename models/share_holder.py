@@ -4,7 +4,7 @@ from datetime import datetime, date,time,timedelta
 
 class DrogaShareHolder(models.Model):
     _name="droga.physio"
-    _rec_name="full_name"
+    _rec_name="description"
     _inherit = ['mail.thread', 'mail.activity.mixin', 'image.mixin']
     
     mrn = fields.Char(string="MRN",required=True, copy=False, readonly=True,default=lambda self: _('New'))
@@ -21,7 +21,7 @@ class DrogaShareHolder(models.Model):
     location = fields.Many2one("customer.class", string="Location")
 
     employee_name = fields.Char("Employee Name")
-    company_name = fields.Many2one("res.partner",string="Company name")
+    company_name = fields.Many2one("customer.class",string="Company name" )
     employee_id = fields.Char("Employee ID")
     
 
@@ -34,20 +34,26 @@ class DrogaShareHolder(models.Model):
     wereda=fields.Char("Wereda")
     office_tel=fields.Char("Office Tell")
 
-    refered_by=fields.Char("Refered By")
+    refered_by=fields.Many2one(comodel_name="hr.employee",string="Refered By")
     house_no=fields.Char("House No.")
     tin_no=fields.Char("Tin No.")
-    
+    company=fields.Many2one(comodel_name="customer.class",string="company") 
+    contract=fields.Many2one(comodel_name="droga.contract",string="contract") 
+
+
+
+
     # sequence_no = fields.Char(string='Sequence', readonly=True)
     sequence_no = fields.Char(string='Sequence Number', readonly=True, copy=False, default=lambda self: _('New'))
 
     
-    description = fields.Text(string="Description")
+    # description = fields.Text(string="Description")
     document = fields.Binary(string='Document')
 
     
     is_individual = fields.Boolean(string='Individual', default=True)
     is_company = fields.Boolean(string='Company', default=False)
+    organization= fields.Many2one(comodel_name="customer.class",string="Organization")
 
     @api.model
     def create(self, vals):
@@ -91,17 +97,25 @@ class DrogaShareHolder(models.Model):
     def _onchange_company(self):
         if self.is_company:
             self.is_individual = False
-    # @api.model
-    # def create(self, vals):
-        
-    #     if 'tin_no' in vals and len(vals['tin_no']) != 10:
-    #         raise ValidationError("Tin No. should be 10 characters long")
-    #     return super(DrogaShareHolder, self).create(vals)
+  
+    description = fields.Char("Description", compute="_compute_description")
 
-    # def write(self, vals):
-    #     if 'tin_no' in vals and len(vals['tin_no']) != 10:
-    #         raise ValidationError("Tin No. should be 10 characters long")
-    #     return super(DrogaShareHolder, self).write(vals)
+    @api.onchange('sequence_no', 'full_name', 'company')
+    def _compute_description(self):
+        for record in self:
+            mrn=""
+            company=""
+            name=""
+            if record.mrn:
+                mrn=record.sequence_no
+            if record.full_name:
+                name=record.full_name
+            if record.company:
+                company=record.company.company_name      
+
+            a=mrn+" "+name+" "+company
+            record.description = a
+
 
     
     @api.constrains('tin_no')
@@ -130,25 +144,27 @@ class NotebookClass(models.Model):
 
     office_tel=fields.Char(related='droga_physio_id.office_tel',string="Office Tell")
 
-    refered_by=fields.Char(related='droga_physio_id.refered_by',string="Refered By")
+    refered_by=fields.Many2one(comodel_name="hr.employee",string="Refered By")
+    # refered_by=fields.Char(related='droga_physio_id.refered_by',string="Refered By")
     house_no=fields.Char(related='droga_physio_id.house_no',string="House No.")
     tin_no=fields.Char(related='droga_physio_id.tin_no',string="Tin No.")
     
     customer_class_id = fields.Many2one('customer.class', string="customer class")
     print_date = fields.Date(string="Print Date")
     time=fields.Datetime("Date and Time")
-    appointed_to=fields.Selection([('dr1','Dr1'),('dr2','Dr2')],"Appointed To")
+    appointed_to=fields.Many2one(comodel_name="hr.employee",string="Appointed To")
     remark=fields.Selection([('arrived','Arrived'),('holiday','Holiday'),('absent','Absent'),('reschedule','Reschedule')],"Remark")
     service_type=fields.Selection([('club foot','Club Foot'),('eval','Eval'),('general physical teraphy','General Physical Teraphy'),('speech teraphy','Speech Teraphy')])
     price=fields.Char("Price")
     paid_Amount=fields.Char("Paid Amount")
     condition=fields.Selection([('ankle','Ankle'),('cervical','Cervical'),('elbow','Elbow'),('elbow wrist','Elbow Wrist'),('hand','Hand'),('knee','Knee'),('lumber','Lumber'),('neuro doc','Nuro Doc'),('neuro pt','Nuro PT'),('post strock','Post Strok'),('shoulder','Shoulder'),('thoractic','Thoractic'),('wrist','Wrist')],"Condition")
 
+    attachment = fields.Binary(string= 'Attachment')
  
     employee_name=fields.Char("Employee Name")
     profession=fields.Char("Profession")
     employee_id=fields.Char("Employee Id")
-    Service_Type = fields.Many2one('service.type', string='Serivce Type',)
+    Service_Type = fields.Many2one('product.template', string='Serivce Type',)
     birth_date = fields.Date('Birth Date')
     age=fields.Integer("Age", compute="_calculate_age")
     sex=fields.Selection([('male','Male'),('female','Female')],"Gender")
@@ -178,10 +194,14 @@ class CustomerClass(models.Model):
     # Service_id = fields.Integer(String ='ID')
     # customer = fields.Char(string="Custom" )
     # res.user sholud sbstituted b
+    
 
     company_name = fields.Char(String = 'Company Name')
     company_grade = fields.Char(String="Company Grade")
     tin_no = fields.Char(string="Tin No")
+    contract=fields.Many2one(comodel_name="droga.contract",string="contract") 
+
+
     area = fields.Char(string="Area")
     location = fields.Char(string="Location")
 
@@ -203,6 +223,7 @@ class CustomerClass(models.Model):
     notebook_ids_sesstion = fields.One2many('notebook.class', 'customer_class_id', string="Notebook")
     
     notebook_ids_employee = fields.One2many('notebook.class', 'customer_class_id', string="Notebook")
+    company_id=fields.One2many(comodel_name="droga.physio",inverse_name="organization",string="Company")
 
     @api.depends('birth_date')
     def _calculate_age(self):
@@ -246,9 +267,28 @@ class Appointment (models.Model):
     start_date=fields.Datetime(" Start Date") 
     end_date= fields.Datetime("End Date") 
     clinician=fields.Char("Clinician") 
-    clinician1=fields.Many2one(comodel_name="res.users",string="Clincian") 
-    mrn=fields.Integer("MRN") 
+    clinician1=fields.Many2one(comodel_name="hr.employee",string="Clincian",domain="[('clinicians', '=', True)]") 
+    # mrn=fields.Integer("MRN") 
+    mrn=fields.Many2one(comodel_name="droga.physio",string="MRN") 
+
     name=fields.Char("Patients Name") 
+
+    
+
+    def presc(self):
+        return {
+            'name': 'Prescription',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': 'prescription.paitent',
+            'view_id': False,
+            'type': 'ir.actions.act_window',
+            'context': {
+                'default_mrn': self.id,
+            },
+            'domain':
+                ([('mrn', '=', self.id)])
+        }
 
 class SetReminder (models.Model): 
      
@@ -256,9 +296,9 @@ class SetReminder (models.Model):
     date=fields.Datetime("Date") 
     birth_date=fields.Date("Birth Date") 
     age=fields.Integer("Age") 
-    appointed=fields.Char("Appointed To")    
-    mrn=fields.Integer("MRN") 
-    name=fields.Char("Patients Name") 
+    appointed=fields.Many2one(comodel_name="hr.employee",string="Appointed To")    
+    mrn=fields.Many2one(comodel_name="droga.physio",string="MRN") 
+    name=fields.Many2one(comodel_name="droga.physio",string="Patients Name") 
     phone=fields.Char("Phone") 
     reason = fields.Text(string="Reason") 
      
@@ -293,7 +333,7 @@ class prescription(models.Model):
     notebook_ids = fields.One2many('notebook.class', 'prescription_paitent_id', string="Notebook") 
     # prescription_no = fields.Integer('no') 
     prescriber = fields.Char() 
-    prescriber=fields.Many2one(comodel_name="res.users",string="prescriber") 
+    prescriber=fields.Many2one(comodel_name="hr.employee",string="prescriber") 
     medication=fields.Char("Medication") 
     frequency=fields.Char("Frequency") 
     start_date=fields.Date("start date") 
@@ -341,6 +381,9 @@ class drogaCustomerContract(models.Model):
 
 class drogaMedicalCertifcates(models.Model):
     _name = 'droga.medicalcertifcates'
+    
+    
+    patient =  fields.Many2one('droga.physio', string='Patient')
 
 #   patient_name = _id = fields.Many2one('',string='', )
     date = fields.Date()
@@ -349,7 +392,74 @@ class drogaMedicalCertifcates(models.Model):
     diagnosis = fields.Text(string = "Diagnosis")
     recommendation = fields.Text(string = "Recommendation")
 
+
+
 class drogaClinicians(models.Model):
 
     _inherit = 'hr.employee'
     clinicians = fields.Boolean(string = "Clinicians")
+
+class referalForm(models.Model):
+
+    _name = 'referal.form'
+
+    patient =  fields.Many2one('droga.physio', string='Patient')
+    date = fields.Date("Date")  
+    investigation = fields.Text(string = "Investigation")
+    physiotherapy_diagnosis = fields.Text(string = "Physiotherapy Diagnosis")
+    medical_diagnosis = fields.Text(string="Medical Diagnosis")
+    treatment_given = fields.Text(string="Treatment Given")
+    reasons_for_referral = fields.Text(string="Reasons for Refferral")
+    clinician1=fields.Many2one(comodel_name="hr.employee",string="Clincian") 
+
+
+class examinationForm(models.Model):
+
+    _name = 'examination.form'
+
+    patient =  fields.Many2one('droga.physio', string='Patient')
+    date = fields.Date("Date") 
+    clinician1=fields.Many2one(comodel_name="hr.employee",string="Clincian")  
+    cc = fields.Text(string = "C/C")
+    hpi = fields.Text(string = "HPI(pain location, types, radiate, severity, timing,weight change,sleep disturbance)")
+    rpmh = fields.Text(string="RPMH")
+    dignostics_imaging_finding = fields.Text(string="Diagnostics and Imaging Finding ")
+    observation = fields.Text(string="Observation")
+    palpation = fields.Text(string="Palpation")
+    rom=fields.Text(string="ROM/Flexibility")
+    lld=fields.Text(string="LLD")
+    mmt=fields.Text(string="MMT")
+    reflex=fields.Text(string="Reflex")
+    sensory=fields.Text(string="Sensory")
+    special_test=fields.Text(string="Special Test")
+    function=fields.Text(string="Function Activities Limitation")
+    pt=fields.Text(string="PT Dx")
+    treatment=fields.Text(string="Treatment Plan")
+
+class nursingEvaluation(models.Model):
+
+    _name='nursing.evaluation'
+    pains=fields.Many2many(comodel_name="physio.complian.pains", string="Chief Complain/Pains")
+    physio_neurology=fields.Many2many(comodel_name="physio.neurology" , string="Neurology")
+    medical_history=fields.Many2many(comodel_name="medical.history" , string="Medical History")
+
+    
+class pains(models.Model):
+
+    _name='physio.complian.pains'
+    name=fields.Char(string="Chief Complain")
+
+class PhysioNeurology(models.Model):
+
+    _name='physio.neurology'
+    name=fields.Char(string="Neurology")
+
+class MedicalHistory(models.Model):
+
+    _name='medical.history'
+    name=fields.Char(string="Medical History")
+
+class PhysioNeurology(models.Model):
+
+    _name='physio.neurology'
+    name=fields.Char(string="Chief Complain")

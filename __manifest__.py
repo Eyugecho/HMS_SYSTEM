@@ -26,9 +26,6 @@ tutorial do not contain all""",
         'views/clinicians.xml'
         
         ],
-    'demo': [
-     
-    ],
     'installable': True,
     'application': True,
 }
