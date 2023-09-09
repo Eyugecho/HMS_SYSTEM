@@ -9,5 +9,19 @@ access_cancle_appointment_wizard,access_cancle_appointment_wizard,model_cancle_a
 access_droga_contract,access_droga_contract,model_droga_contract,,1,1,1,1
 access_droga_medicalcertifcates,access_droga_medicalcertifcates,model_droga_medicalcertifcates,,1,1,1,1
 access_set_reminder,access_set_reminder,model_set_reminder,,1,1,1,1
+access_referal_form,access_referal_form,model_referal_form,,1,1,1,1
+access_examination_form,access_examination_form,model_examination_form,,1,1,1,1
+access_nursing_evaluation,access_nursing_evaluation,model_nursing_evaluation,,1,1,1,1
+access_physio_neurology,access_physio_neurology,model_physio_neurology,,1,1,1,1
+access_medical_history,access_medical_history,model_medical_history,,1,1,1,1
+access_physio_neurology,access_physio_neurology,model_physio_neurology,,1,1,1,1
+access_physio_complian_pains,access_physio_complian_pains,model_physio_complian_pains,,1,1,1,1
+
+
+
+
+
+
+
 
 

@@ -22,7 +22,7 @@
             <field name="house_no"  optional="unshow"/>
             <field name="tin_no" />
 
-
+            <field name="organization" />
 
            
             </tree>
@@ -57,18 +57,19 @@
                                     <field name="age" optional="unshow"/>
                                     <field name="birth_date"  optional="unshow"/>
                                     <field name="register_date" />
-                                    
-                                    
+
                         </group>
 
                         <group  string="Address" col="2">
 
                           <group>
-                            <field name="phone" wedget="phone" />
-                           
-                            <field name="city" />
-                            <field name="subcity" optional="show"/>
-                            <field name="wereda" />
+
+                                <field name="phone" wedget="phone" />
+                                <field name="city" />
+                                <field name="subcity" optional="show"/>
+                                <field name="wereda" />
+                                
+                            
                           </group>
                           <group>
                             
@@ -76,7 +77,9 @@
                             <field name="refered_by" />
                             <field name="house_no" />
                             <field name="tin_no" />
-
+                            <!-- <field name="company" /> -->
+                            <field name="organization" />
+                            
                           </group>
 
 
@@ -100,7 +103,7 @@
                                         <field name="condition"/>
                                        
                                         <field name="Service_Type"/>
-                                      
+                                        <field name="attachment"/>
                                         
                                         <field name="employee_name"  optional='hide'/>
                                         <field name="employee_id" optional='hide'/>
@@ -108,6 +111,7 @@
                                         <field name="birth_date" optional='hide'/>
                                         <field name="age" optional='hide'/>
                                         <field name="sex" optional='hide'/>
+
                                 </tree>
                             </field>
                         </page>
@@ -128,10 +132,9 @@
     </record>
 
     <record id="droga_physio_action" model="ir.actions.act_window">
-        <field name="name">Members</field>
+        <field name="name">New Paitient</field>
         <field name="res_model">droga.physio</field>
         <field name="view_mode">tree,form,pivot</field>
-        
         <field name="target">current</field>
     </record>
 
@@ -178,6 +181,7 @@
                     <group >
                     <field name="company_name" />
                     <field name="company_grade"/>
+                    <field name="contract" />
                     <field name="tin_no" />
                     </group>
                     <group >
@@ -190,9 +194,11 @@
                  </group>
                     
                      <notebook>
-                          <page string="Members" >
-                   
+                          <!-- <page string="Members" >
                             <field name="droga_physio_id" />
+                        </page> -->
+                        <page name="member" string="Members">
+                            <field name="company_id" />
                         </page>
                     </notebook>
           
@@ -242,7 +248,7 @@
         sequence="1"/>
     <menuitem
         id="droga_physio_menu_sub"
-        name="Members"
+        name="New Paitients"
         action="droga_physio_action"
         parent="customer_menu"
         sequence="90"/>
@@ -280,6 +286,39 @@
             <form string=""> 
                 <sheet> 
                 <group> 
+                    <field name="mrn" /> 
+                    <field name="start_date" /> 
+                    <field name="end_date" />   
+                    <field name="clinician1" /> 
+                </group> 
+         
+                </sheet> 
+            </form> 
+        </field> 
+    </record>
+
+    <record id="appointment_set_view_calendar" model="ir.ui.view">
+        <field name="name">appointment.set.view.calendar</field>
+        <field name="model">appointment.set</field>
+        <field name="arch" type="xml">
+             <calendar string="Reminder" date_start="start_date">
+                <field name="mrn" /> 
+                <field name="start_date" /> 
+                <field name="end_date" />   
+                <field name="clinician1" />
+            </calendar>
+        </field>
+    </record>
+     
+    <record id="appointment_set_form" model="ir.ui.view"> 
+        <field name="name">schedule.set.form</field> 
+        <field name="model">appointment.set</field> 
+        <field name="arch" type="xml"> 
+            <form string=""> 
+            <button name="%(prescription_patient_action)d" string="Prescription" type="action" class="oe_highlight"/>
+            <button name="%(examination_form_action)d" string="Examination" type="action" class="oe_highlight"/>
+                <sheet> 
+                <group> 
                 <field name="mrn" /> 
                 <field name="start_date" /> 
                 <field name="end_date" />   
@@ -293,12 +332,13 @@
     <record id="appointment_set_action" model="ir.actions.act_window"> 
         <field name="name">Appointment</field> 
         <field name="res_model">appointment.set</field> 
-        <field name="view_mode">tree,form</field> 
+        <field name="view_mode">tree,form,calendar</field>
+        <field name="domain">[('clinician1.user_id', '=', uid)]</field> 
     </record> 
 
     <menuitem 
         id="schedule_menu" 
-        name="Schedule" 
+        name="Appointment" 
         action="appointment_set_action" 
         parent="droga_physio" 
         sequence="10"/>  
@@ -368,7 +408,7 @@
          
             <menuitem 
                 id="prescription_patient_menu" 
-                name="Patient" 
+                name="Prescription" 
                 action="prescription_patient_action" 
                 parent="droga_physio" 
                 sequence="10"/> 
@@ -450,6 +490,174 @@
                 sequence="50"/> 
 
 
+<record id="referal_form_view_tree" model="ir.ui.view">
+    <field name="name">referal.form.view.tree</field>
+    <field name="model">referal.form</field>
+    <field name="arch" type="xml">
+        <tree string="">
+            <field name="patient" />     
+            <field name="date" />
+            <field name="clinician1" />     
+        </tree>
+    </field>
+</record>
 
-                                 
+<record id="referal_form_view_form" model="ir.ui.view">
+    <field name="name">referal.form.view.form</field>
+    <field name="model">referal.form</field>
+    <field name="arch" type="xml">
+        <form string="">
+            <sheet>
+            <group>
+                
+                <group  string="Information">
+                    <field name="patient" />     
+                    <field name="date" />
+                    <field name="clinician1" /> 
+                </group>
+                <group  string="Examination">
+                    <field name="investigation" />     
+                    <field name="physiotherapy_diagnosis" />     
+                    <field name="medical_diagnosis" />     
+                    <field name="treatment_given" />
+                    <field name="reasons_for_referral" />
+                </group>
+                        
+            </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+      <record id="referal_form_action" model="ir.actions.act_window">
+        <field name="name">Referral</field>
+        <field name="res_model">referal.form</field>
+        <field name="view_mode">tree,form</field>
+        
+      </record>  
+
+      <!-- <menuitem 
+                id="referal_form_menu" 
+                name="Refferal" 
+                action="referal_form_action" 
+                parent="droga_physio" 
+                sequence="40"/>   -->
+
+    <record id="examination_form_view_tree" model="ir.ui.view">
+        <field name="name">examination.form.view.tree</field>
+        <field name="model">examination.form</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                    <field name="patient" />     
+                    <field name="date" />     
+                    <field name="clinician1" />     
+            </tree>
+        </field>
+    </record>   
+
+<record id="examination_form_view_form" model="ir.ui.view">
+    <field name="name">examination.form.view.form</field>
+    <field name="model">examination.form</field>
+    <field name="arch" type="xml">
+        <form string="">
+            <sheet>
+                <group>
+                <group string="Information">
+                    <field name="patient" />     
+                    <field name="date" />     
+                    <field name="clinician1" />     
+                </group>
+                <group string="Medical Information">
+                    <field name="cc" />     
+                    <field name="hpi" />     
+                    <field name="rpmh" />     
+                    <field name="dignostics_imaging_finding" />
+                    <field name="observation" />
+                </group>
+
+                <group string="_">
+                    <field name="palpation" />     
+                    <field name="rom" />     
+                    <field name="lld" />     
+                    <field name="mmt" />
+                    <field name="reflex" />
+                </group>
+                <group string="_">
+                    <field name="sensory" />     
+                    <field name="special_test" />     
+                    <field name="function" />     
+                    <field name="pt" />
+                    <field name="treatment" />
+                </group>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>     
+
+<record id="examination_form_action" model="ir.actions.act_window">
+    <field name="name">Examination</field>
+    <field name="res_model">examination.form</field>
+    <field name="view_mode">tree,form</field>
+</record>  
+    <menuitem
+        id="examination_menu"
+        name="Physio Form"
+        parent="droga_physio"
+        action="examination_form_action"
+        sequence="10"/>
+    <menuitem
+        id="droga_physio_sub"
+        name="Examination Form"
+        action="examination_form_action"
+        parent="examination_menu"
+        sequence="90"/>
+    <menuitem
+        id="droga_physio_sub2"
+        name="Refferal Form"
+        action="referal_form_action"
+        parent="examination_menu"
+        sequence="90"/> 
+
+<record id="nursing_evaluation_view_tree" model="ir.ui.view">
+    <field name="name">nursing.evaluation.view.tree</field>
+    <field name="model">nursing.evaluation</field>
+    <field name="arch" type="xml">
+        <tree string="">
+            <field name="pains" />
+            <field name="physio_neurology" />
+            <field name="medical_history" />
+
+
+        </tree>
+    </field>
+</record>
+
+
+<record id="nursing_evaluation_view_form" model="ir.ui.view">
+    <field name="name">nursing.evaluation.view.form</field>
+    <field name="model">nursing.evaluation</field>
+    <field name="arch" type="xml">
+        <form string="">
+            <sheet>
+                <group>
+                     <field name="pains" widget="many2many_tags"/> 
+                     <field name="physio_neurology" widget="many2many_tags"/>
+                     <field name="medical_history" widget="many2many_tags"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+<record id="nursing_evaluation_action" model="ir.actions.act_window">
+    <field name="name">Nursing Evaluation</field>
+    <field name="res_model">nursing.evaluation</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+  <menuitem 
+                id="Reminder_set_menu2" 
+                name="Nursing Evaluation" 
+                action="nursing_evaluation_action" 
+                parent="droga_physio" 
+                sequence="70"/> 
 </odoo>
