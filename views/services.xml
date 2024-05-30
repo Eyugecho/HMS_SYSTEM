@@ -161,5 +161,6 @@
             name="Services"
             action="product_template_ser_action"
             parent="droga_physio"
-            sequence="10"/>
+            sequence="10"
+            groups="D-Physiotherapy_d.group_receptionist,D-Physiotherapy_d.group_chiled_receiption"/>
 </odoo>

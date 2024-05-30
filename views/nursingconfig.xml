@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="nursingact_tag_config_tree_view" model="ir.ui.view">
+        <field name="name">nursingact.tag.config.tree</field>
+        <field name="model">nursingact.tag.config</field>
+        <field name="arch" type="xml">
+            <tree string="Medek Tag">
+                    
+                    <field name="name"/>
+                    <field name="catagories_nurs"/>
+         
+            </tree>
+        </field>
+    </record>
+
+    <record id="medek_tag_form_view" model="ir.ui.view">
+        <field name="name">nursingact.tag.config.form</field>
+        <field name="model">nursingact.tag.config</field>
+        <field name="arch" type="xml">
+            <form string="Nursin Activity Tag">
+                <sheet>
+                    <group>
+                    <group >
+                        
+                          <field name="name"/>
+                            <field name="catagories_nurs"/>
+                    </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="nursingact_tag_config_action" model="ir.actions.act_window">
+        <field name="name">nursing activity tag</field>
+        <field name="res_model">nursingact.tag.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem 
+                id="nurs_act_menu" 
+                name="Nursing Activities Configuration"
+                action="nursingact_tag_config_action" 
+                parent="confi_menu" 
+                sequence="95"
+                groups="D-Physiotherapy_d.group_clinician,D-Physiotherapy_d.group_receptionist,D-Physiotherapy_d.group_chiled_receiption,D-Physiotherapy_d.group_chiled_clinician"/>
+
+</odoo>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="examination_form_view_tree_appointment" model="ir.ui.view">
+        <field name="name">examination.form.view.tree</field>
+        <field name="model">examination.form</field>
+        <field name="arch" type="xml">
+        
+            <tree string=""  delete="0" sample="1" multi_edit="1">
+                    <field name="mrn"  context="{'user_company_id': uid}"/> 
+                    <field name="patient_name"/>
+
+                    <!-- <field name="phone" />	     -->
+                    <field name="date" />     
+                    <field name="clinician1" /> 
+                    <field name="status_app" widget="badge"  decoration-success="status_app == 'arrived'" decoration-info="status_app == 'rescheduled'" decoration-danger="status_app == 'cancel'"/> 
+                   
+              
+
+
+                    
+                    <button name="view_nursing_evaluation" string="Add Nursing Evaluation" type="object" class="oe_highlight" groups="D-Physiotherapy_d.group_nurse,D-Physiotherapy_d.group_chiled"/>
+                    
+            </tree>
+        </field>
+    </record>   
+
+<record id="examination_form_view_form_appointment" model="ir.ui.view">
+    <field name="name">examination.form.view.form</field>
+    <field name="model">examination.form</field>
+    <field name="arch" type="xml">
+        <form string="">
+                <!-- <header>
+                     <button id="button_confirm_appo" name="action_confirm_appo"   string="Confirm" class="btn-primary" type="object" states="draft"/>
+                     <button id="button_cancel_appo" name="action_cancel_appo"  states="done" string="Cancel"  type="object" confirm="Are you sure you need to cancel?"/>
+
+                    <field name="state_appo" widget="statusbar"  statusbar_visible="draft,done"/>
+                </header> -->
+                <header>
+                     <button id="button_confirm" name="action_confirm"   string="Reserve" class="btn-primary" type="object" states="draft"/>
+                    <button id="button_cancel" name="%(D-Physiotherapy_d.action_cancel_appointment)d" string="Cancel" type="action" states="done" context="{'default_appointment_id':active_id}" groups="D-Physiotherapy_d.group_receptionist,D-Physiotherapy_d.group_chiled_receiption" />
+
+                     <!-- <button id="button_cancel" name="action_cancel"   string="cancel" states="done" type="object" confirm="Are you sure you need to cancel?" groups="D-Physiotherapy_d.group_receptionist"/> -->
+                    <button name="action_notify" type="object" string="Notify" class="oe_highlight" states="done"  groups="D-Physiotherapy_d.group_receptionist,D-Physiotherapy_d.group_chiled_receiption"/>
+                    <field name="state" widget="statusbar"  statusbar_visible="draft,done"/>
+                </header>
+            <sheet>
+              <div class="oe_button_box" name="button_box">
+                <button name="action_appointment_count" icon= "fa-star" string="View Nursing Evaluation" type="object" class="oe_stat_button">
+                    <field string="Total Appointment" name="appointment_count" widget="statinfo"/>
+                </button>
+                
+
+
+             </div>
+                <group>
+                <group >
+                    <field name="mrn"  context="{'user_company_id': uid}"/>
+                    <field name="patient_name"/>   
+                    <field name="case_e" widget="many2many_tags"/>
+
+                      
+                         
+                </group>
+                                    <group >
+                                    <field name="clinician1" />
+                                    <!-- <field name="company_id" groups="base.group_multi_company"/> -->
+                                    
+
+
+                                    </group>
+
+                
+                </group>
+
+        <notebook>
+            <page string="Appointment">
+                <field name="appo" widget="form">
+                    <tree editable='top'>
+
+                    <field name="mrn"  context="{'user_company_id': uid}"/>
+                    <field name="clincian"/>  
+                    <field name="start_date"/>
+                    <field name="status"  widget="selection" decoration-success="status == 'arrived'" decoration-info="status == 'rescheduled'" decoration-danger="status == 'cancel'"  decoration-primary="status == 'scheduled'"/>
+
+                    
+                    
+                    
+                    
+                    </tree>
+                    </field>
+            </page>
+             
+ 
+        </notebook>
+  
+                    <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                    </div>
+    
+            </sheet>
+            
+        </form>
+   
+   
+   
+    </field>
+</record> 
+
+<record id="examination_form_appointment_action_3" model="ir.actions.act_window">
+    <field name="name">Appointment</field>
+    <field name="res_model">examination.form</field>
+    <field name="view_mode">tree,form</field> 
+    
+    <field name="views" eval="[(0, 0, {'view_mode': 'tree', 'view_id': ref('examination_form_view_tree_appointment')}), (0, 0, {'view_mode': 'form', 'view_id': ref('examination_form_view_form_appointment')})]"/>
+    <field name="context">{'user_company_id': uid}</field>
+
+</record>
+
+ <menuitem
+        id="model_name_menu_3"
+        name="Appointment"
+        action="examination_form_appointment_action_3"
+       
+        parent="schedule_menu"
+        sequence="11"
+        groups="D-Physiotherapy_d.group_receptionist,D-Physiotherapy_d.group_chiled,D-Physiotherapy_d.group_chiled_receiption"/>
+    
+
+</odoo>

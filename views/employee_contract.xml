@@ -14,12 +14,12 @@
         parent="droga_physio"
         sequence="10"/>
   
-    <menuitem
+    <!-- <menuitem
         id="Staff_contrat_menu"
         name="Staff Contrat"
         action="hr_contract.hr_contract_history_view_form_action"
         parent="Staff_menu"
-        sequence="10" />
+        sequence="10" /> -->
     <menuitem
         id="calender_menu"
         name="Staff Schedule"

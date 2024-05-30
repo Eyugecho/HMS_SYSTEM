@@ -4,30 +4,50 @@
     <record id="droga_medicalcertifcates_view_form" model="ir.ui.view">
         <field name="name">droga.medicalcertifcates.view.form</field>
         <field name="model">droga.medicalcertifcates</field>
-        <field name="arch" type="xml">
+        <field name="arch" type="xml" >
             <form>
                 <sheet>
-                    <group>
-                    <field name="date"/>
-                    <!-- <field name="clinicians" /> -->
-                    <field name="sessions" />
-                    <field name="diagnosis" />
-                    <field name="recommendation"/>
-           
+                 <group>
+                    <group  string="Basic Data">
+                        <field name="mrn"/>
+                        <field name="date"/>
+                        <field name="full_name" />
+                        <field name="age"/>
+                        <field name="birth_date"/>
+                        <field name="sex"/>
+                        
                     </group>
+                    
+                    <group  string="Medical Data">
+                        <field name="diagnosis" />
+                        <field name="recommendation"/>
+                        <field name="rest_required"/>
+                        <field name="time_1" />
+                    </group>
+        
+                     
+                    </group>
+                    <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                    </div>
                 </sheet>
             </form>
         </field>
+        
     </record>
     
     <record id="droga_medicalcertifcates_tree" model="ir.ui.view">
         <field name="name">Medical Certifcates</field>
         <field name="model">droga.medicalcertifcates</field>
         <field name="arch" type="xml">
-            <tree string="Medical Certifcates">
+            <tree string="Medical Certifcates" create="0" sample="1">
+                <field name="mrn"/>
+                <field name="full_name" />
                 <field name="date"/>
                 <!-- <field name="clinicians" /> -->
-                <field name="sessions"/>
+                <!-- <field name="sessions"/> -->
                 
             </tree>
         </field>
@@ -39,10 +59,11 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem
+   <menuitem
         id="droga_medicalcertifcates_menu"
         name="Medical Certifcates"
         action="droga_medicalcertifcates_action"
-        parent="droga_physio"
-        sequence="30" />
+        parent="forms_menu"
+        sequence="90" 
+        groups="D-Physiotherapy_d.group_clinician,D-Physiotherapy_d.group_chiled_clinician"/>
 </odoo>

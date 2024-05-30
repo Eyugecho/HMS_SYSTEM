@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="service_confi_1" model="services.tag">
+        <field name="service_name">Cerebral Palsy</field>
+        <field name="service_active">True</field>
+        <field name="service_color">1</field>
+        
+    </record>
+
+    <record id="service_confi_2" model="services.tag">
+        <field name="service_name">Gross Developmental Delay</field>
+        <field name="service_active">True</field>
+        <field name="service_color">2</field>
+        
+    </record>
+
+    <record id="service_confi_3" model="services.tag">
+        <field name="service_name">Apraxia</field>
+        <field name="service_active">True</field>
+        <field name="service_color">3</field>
+        
+    </record>
+
+    <record id="service_confi_4" model="services.tag">
+        <field name="service_name">Brachial Plexus Injury</field>
+        <field name="service_active">True</field>
+        <field name="service_color">4</field>
+      
+    </record>
+    <record id="service_confi_5" model="services.tag">
+        <field name="service_name">Ataxia</field>
+        <field name="service_active">True</field>
+        <field name="service_color">5</field>
+      
+    </record>
+    <record id="service_confi_6" model="services.tag">
+        <field name="service_name">Brain Injury</field>
+        <field name="service_active">True</field>
+        <field name="service_color">6</field>
+      
+    </record> 
+    <record id="service_confi_7" model="services.tag">
+        <field name="service_name">Epilepsies</field>
+        <field name="service_active">True</field>
+        <field name="service_color">7</field>
+      
+    </record> 
+    <record id="service_confi_8" model="services.tag">
+        <field name="service_name">Spinal Bifida</field>
+        <field name="service_active">True</field>
+        <field name="service_color">8</field>
+      
+    </record> 
+    <record id="service_confi_10" model="services.tag">
+        <field name="service_name">Down Syndrome</field>
+        <field name="service_active">True</field>
+        <field name="service_color">9</field>
+    </record> 
+    <record id="service_confi_11" model="services.tag">
+        <field name="service_name">Club Foot</field>
+        <field name="service_active">True</field>
+        <field name="service_color">10</field>
+    </record> 
+    <record id="service_confi_12" model="services.tag">
+        <field name="service_name">Pediatric Movement Disorders</field>
+        <field name="service_active">True</field>
+        <field name="service_color">11</field>
+    </record> 
+    <record id="service_confi_13" model="services.tag">
+        <field name="service_name">Tone Disorders</field>
+        <field name="service_active">True</field>
+        <field name="service_color">12</field>
+    </record> 
+    <record id="service_confi_14" model="services.tag">
+        <field name="service_name">Speech And Language Disorders</field>
+        <field name="service_active">True</field>
+        <field name="service_color">13</field>
+    </record> 
+    <record id="service_confi_15" model="services.tag">
+        <field name="service_name">Behavioral Disorders</field>
+        <field name="service_active">True</field>
+        <field name="service_color">14</field>
+    </record> 
+
+</odoo>

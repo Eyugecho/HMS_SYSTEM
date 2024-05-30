@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="patient_tag_tree_view" model="ir.ui.view">
+        <field name="name">patient.tag.tree</field>
+        <field name="model">patient.tag</field>
+        <field name="arch" type="xml">
+            <tree string="Patient Tag">
+                <field name="name"/>
+                <field name="active"/>
+                <field name="color"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="patient_tag_form_view" model="ir.ui.view">
+        <field name="name">patient.tag.form</field>
+        <field name="model">patient.tag</field>
+        <field name="arch" type="xml">
+            <form string="Patient Tag">
+                <sheet>
+                    <group>
+                    <group >
+                       <field name="name"/>
+                        <field name="active" widget="boolean_toggle"/>
+                    </group>
+                    <group >
+                        
+                        <field name="color" widget="color_picker"/>
+                        <field name="color_2" widget="color" group="base.group_no_one"/>
+
+
+                     </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="patient_tag_action" model="ir.actions.act_window">
+        <field name="name">Patient Tag</field>
+        <field name="res_model">patient.tag</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+   <menuitem
+        id="confi_menu"
+        name="Configration"
+        action="patient_tag_action" 
+        parent="droga_physio"
+        groups="D-Physiotherapy_d.group_receptionist,D-Physiotherapy_d.group_chiled_receiption,D-Physiotherapy_d.group_chiled_clinician,D-Physiotherapy_d.group_clinician"
+        sequence="85"/>
+
+    <menuitem id="menu_patient_tag" 
+              name="Patient Case Configuration" 
+              parent="confi_menu" 
+            
+              sequence="85"
+
+              action="patient_tag_action"
+              groups="D-Physiotherapy_d.group_receptionist,D-Physiotherapy_d.group_chiled_receiption,D-Physiotherapy_d.group_chiled_clinician,D-Physiotherapy_d.group_clinician"
+              />
+
+
+</odoo>

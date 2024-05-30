@@ -16,7 +16,7 @@
                     <field name="last_activity_time" invisible="1"/>
                     <field name="last_activity" invisible="1"/>
                     <header>
-                        <button name="326" string="Launch Plan" type="action" groups="hr.group_hr_user"/>
+                        <!-- <button name="326" string="Launch Plan" type="action" groups="hr.group_hr_user"/> -->
                     </header>
                     <sheet>
                         <div name="button_box" class="oe_button_box">
@@ -144,7 +144,7 @@
                                         <div class="o_row">
                                             <field name="barcode"/>
                                             <button string="Generate" class="btn btn-link" type="object" name="generate_random_barcode" attrs="{'invisible': [('barcode', '!=', False)]}"/>
-                                            <button name="335" string="Print Badge" class="btn btn-link" type="action" attrs="{'invisible': [('barcode', '=', False)]}"/>
+                                            <!-- <button name="335" string="Print Badge" class="btn btn-link" type="action" attrs="{'invisible': [('barcode', '=', False)]}"/> -->
                                         </div>
                                     </group>
                                     <group string="Payroll" name="payroll_group">

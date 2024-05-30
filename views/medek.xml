@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="medek_tag_tree_view" model="ir.ui.view">
+        <field name="name">medek.tag.config.tree</field>
+        <field name="model">medek.tag.config</field>
+        <field name="arch" type="xml">
+            <tree string="Medek Tag">
+                    
+                    <field name="name"/>
+         
+            </tree>
+        </field>
+    </record>
+
+    <record id="medek_tag_form_view" model="ir.ui.view">
+        <field name="name">medek.tag.config.form</field>
+        <field name="model">medek.tag.config</field>
+        <field name="arch" type="xml">
+            <form string="Medek Tag">
+                <sheet>
+                    <group>
+                    <group >
+                        
+                          <field name="name"/>
+
+                    </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="medek_tag_action" model="ir.actions.act_window">
+        <field name="name">medek tag</field>
+        <field name="res_model">medek.tag.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+ 
+
+           
+    <menuitem 
+                id="med_menu_2" 
+                name="Medek Therapy configuration" 
+                action="medek_tag_action" 
+                parent="confi_menu" 
+                sequence="90"
+                groups="D-Physiotherapy_d.group_clinician,D-Physiotherapy_d.group_receptionist,D-Physiotherapy_d.group_chiled_receiption,D-Physiotherapy_d.group_chiled_clinician"/>
+</odoo>

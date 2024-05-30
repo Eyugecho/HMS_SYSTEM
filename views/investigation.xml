@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+<record id="investigation_form_view_tree" model="ir.ui.view">
+    <field name="name">investigation.form.view.tree</field>
+    <field name="model">investigation.form</field>
+    <field name="arch" type="xml">
+        <tree string="" create="0" sample="1">
+                <field name="mrn"/>
+                <field name="date"/>
+                <field name="full_name" />
+        </tree>
+    </field>
+</record>
+
+
+<record id="investigation_form_view_form" model="ir.ui.view">
+    <field name="name">investigation.form.view.form</field>
+    <field name="model">investigation.form</field>
+    <field name="arch" type="xml">
+        <form string="">
+            <sheet>
+                <group>
+                    <group  string="Basic Data">
+                        <field name="mrn"/>
+                        
+                        <field name="full_name" />
+                        <field name="age"/>
+                        <field name="birth_date"/>
+                        <field name="sex"/>
+                        
+                    </group>
+                    
+                    <group  string="Medical Data">
+                        <field name="investigation_requested" />
+                        <field name="clinical_data" />
+                        <field name="Clinical_dx" />
+                    </group>
+        
+                    <group  string=".">
+                        <field name="date"/>
+                       <field name="sign" />
+                        <field name="clinical_name" />
+                        
+                    </group>
+             
+                      <!-- <notebook>
+                        <page string="Previous Sesstion" >
+                   
+                            <field name="notebook_ids_previous_sesstion">
+                                <tree editable='top' >
+                                        
+                                        
+                                     
+                                        <field name="birth_date_1" />
+                                        <field name="con" />
+                                        
+
+                                </tree>
+                            </field>
+                        </page>
+
+                        
+                       
+                    </notebook>          -->
+                    </group>
+
+                    <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                    </div>
+            </sheet>
+            
+        </form>
+        
+    </field>
+    
+</record>
+<record id="investigation_form_action" model="ir.actions.act_window">
+    <field name="name">Investigation form</field>
+    <field name="res_model">investigation.form</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem 
+                id="Reminder_set_menu2" 
+                name="Investigation Form" 
+                action="investigation_form_action" 
+                parent="forms_menu" 
+                sequence="70"
+                groups="D-Physiotherapy_d.group_clinician"/>
+
+</odoo>

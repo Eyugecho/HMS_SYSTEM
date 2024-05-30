@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="catagories_tag_Physio" model="catagories.tag">
+        <field name="cata_name">Physio</field>
+        <field name="cata_active">True</field>
+        <field name="cata_color">1</field>
+    </record>
+
+    <record id="catagories_tag_Speech" model="catagories.tag">
+        <field name="cata_name">Speech Thraphy</field>
+        <field name="cata_active">True</field>
+        <field name="cata_color">2</field>
+    </record>
+
+    <record id="catagories_tag_Behavioral" model="catagories.tag">
+        <field name="cata_name">Behavioral Thraphy</field>
+        <field name="cata_active">True</field>
+        <field name="cata_color">3</field>
+    </record>
+
+    <record id="catagories_tag_Nuro" model="catagories.tag">
+        <field name="cata_name">Nuro PT</field>
+        <field name="cata_active">True</field>
+        <field name="cata_color">4</field>
+    </record>
+
+    
+
+</odoo>

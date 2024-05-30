@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="chiled_behavior_config_tree_view" model="ir.ui.view">
+        <field name="name">chiled.behavior.config.tree</field>
+        <field name="model">chiled.behavior.config</field>
+        <field name="arch" type="xml">
+            <tree string="Medek Tag">
+                    
+                    <field name="name"/>
+                    <field name="catagories_assess"/>
+         
+            </tree>
+        </field>
+    </record>
+
+    <record id="chiled_behavior_config_form_view" model="ir.ui.view">
+        <field name="name">chiled.behavior.config.form</field>
+        <field name="model">chiled.behavior.config</field>
+        <field name="arch" type="xml">
+            <form string="Medek Tag">
+                <sheet>
+                    <group>
+                    <group >
+                        
+                          <field name="name"/>
+                          <field name="catagories_assess"/>
+
+                    </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="chiled_behavior_config_action" model="ir.actions.act_window">
+        <field name="name">Chiled Behaviour Configuration</field>
+        <field name="res_model">chiled.behavior.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+ 
+
+           
+    <menuitem 
+                id="med_menu" 
+                name="Chiled Behaviour Configuration" 
+                action="chiled_behavior_config_action" 
+                parent="confi_menu" 
+                sequence="92"
+                groups="D-Physiotherapy_d.group_receptionist,D-Physiotherapy_d.group_chiled_receiption,D-Physiotherapy_d.group_chiled_clinician,D-Physiotherapy_d.group_clinician"/>
+</odoo>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+<record id="physician_consultation_view_tree" model="ir.ui.view">
+    <field name="name">physician.consultation.view.tree</field>
+    <field name="model">physician.consultation</field>
+    <field name="arch" type="xml" >
+        <tree string="">
+
+                    <field name="mrn_physician" /> 
+                    <field name="clinician_id_physician"/>
+                    <field name="patient_name_physician"/>
+
+        </tree>
+    </field>
+</record>
+
+
+<record id="physician_consultation_view_form" model="ir.ui.view">
+    <field name="name">physician.consultation.view.form</field>
+    <field name="model">physician.consultation</field>
+    <field name="arch" type="xml">
+        <form string="">
+            <sheet>
+                <group>
+                
+                    <group  string="Basic Data">
+
+                        <field name="mrn_physician" />                    
+                         <field name="patient_name_physician" />`
+                         <field name="clinician_id_physician" />
+                         <field name="chiled_age_physician" />
+                         <field name="chiled_age_year_physician" />
+                        <!-- <field name="assigned_nurse" readonly="1"/>
+                        <field name="assigned_to_me"/> -->
+
+
+                        
+
+                        
+                        
+                    </group>
+
+            </group>
+            <group col="6" string="Medical Information" style="font-size: 15px;" class="mt-2 mt-md-0" >
+                <group  colspan="4" groups="D-Physiotherapy_d.group_chiled_clinician">
+                    
+                    <field name="physican_diagnosis_physician_con" /> 
+                    <field name="treatment_given_physician_con" />
+                    <field name="reasone_for_consultation_physician_con" />
+                    <field name="physician_feedback_physician_con" />
+
+                </group>
+                <group colspan="2" groups="D-Physiotherapy_d.group_chiled_clinician" >
+               
+                </group>
+        
+            </group>
+        <notebook>
+        
+        </notebook>
+                
+            
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+            </sheet>
+            
+        </form>
+        
+    </field>
+    
+</record>
+
+<record id="physician_consultation_action_25" model="ir.actions.act_window">
+    <field name="name">Physican Consultation</field>
+    <field name="res_model">physician.consultation</field>
+    <field name="view_mode">tree,form</field> 
+</record>
+    
+     <menuitem
+        id="model_name_physician_consultation_25"
+        name="Physician Consultation"
+        action="physician_consultation_action_25"
+       
+        parent="forms_menu"
+        sequence="28"
+        groups="D-Physiotherapy_d.group_chiled_clinician"/>
+</odoo>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+    <record id="examination_form_view_form2" model="ir.ui.view">
+        <field name="name">examination.form.view.form2</field>
+        <field name="model">examination.form</field>
+        <field name="arch" type="xml">
+            <form string="">
+            
+                <sheet>
+                    <group>
+                    
+                    <field name="mrn" create="false" readonly="true" />
+                    <field name="patient_name" create="false" readonly="true"  />
+                    <field name="sex" create="false" readonly="true" />
+                    <field name="age" create="false" readonly="true" />
+                    <field name="weight" create="false" readonly="true" />
+                    <field name="Diagnosis" create="false" readonly="true" />
+                    <field name="clinician1" create="false" readonly="true" />
+                    </group>
+                    <notebook>
+            
+
+         <page string="Prescriptions">
+            <field name="pre_session" readonly="true" create="false">
+            <tree delete = "0" sample="1">
+
+            <field name="drug_name" option= "{'collaborative': true , 'resizable': true}"/>
+            <field name="price" groups="D-Physiotherapy_d.group_receptionist,D-Physiotherapy_d.group_chiled_receiption"/>  
+            
+            </tree>
+            </field>
+            </page>
+
+              <page string="Other Prescription">
+            <field name="pre_session_product">
+            <tree editable="bottom">
+
+            <field name="product_id" />
+            <field name="unit_price" groups="D-Physiotherapy_d.group_receptionist,D-Physiotherapy_d.group_chiled_receiption"/>
+            <field name="quantity" />
+
+
+            
+        
+
+            
+            </tree>
+            </field>
+            <group col="6" class="mt-2 mt-md-0">
+
+                <group  colspan="4">
+                    <field name="ttu"  colspan="2" nolabel="1" readonly="true"/>
+                </group>
+                
+                <group colspan="2">
+                 <field name="total"  colspan="2" groups="D-Physiotherapy_d.group_receptionist,D-Physiotherapy_d.group_chiled_receiption"/>
+
+                </group>
+
+
+                
+            </group>
+            </page>
+        </notebook>
+          
+                    <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="examination_form_view_tree2" model="ir.ui.view">
+        <field name="name">examination.form.view.tree2</field>
+        <field name="model">examination.form</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                    <field name="mrn"  />
+                    <field name="patient_name"  />
+                    <field name="clinician1" />
+            </tree>
+        </field>
+    </record>
+<record id="examination_form_action2" model="ir.actions.act_window">
+    <field name="name">Prescription</field>
+    <field name="res_model">examination.form</field>
+    <field name="view_mode">tree,form</field>
+    <field name="context">{'user_company_id': uid}</field>
+  <!--  <field name="view_id" ref="examination_form_view_form2"/>
+    <field name="context">{"form_view_ref": "examination_form_view_form2"}</field>-->
+</record>
+
+<record id="examination_form_action2_tree" model="ir.actions.act_window.view">
+    <field name="sequence" eval="1"/>
+    <field name="view_mode">tree</field>
+    <field name="act_window_id" ref="examination_form_action2"/>
+    <field name="view_id" ref="examination_form_view_tree2"/>
+</record>
+<record id="examination_form_action2_form" model="ir.actions.act_window.view">
+    <field name="sequence" eval="2"/>
+    <field name="view_mode">form</field>
+    <field name="act_window_id" ref="examination_form_action2"/>
+    <field name="view_id" ref="examination_form_view_form2"/>
+</record>
+
+<menuitem 
+                id="prescription_patient_menu" 
+                name="Prescription" 
+                action="examination_form_action2" 
+                parent="droga_physio" 
+                sequence="5"
+                groups="D-Physiotherapy_d.group_receptionist,D-Physiotherapy_d.group_chiled_receiption,D-Physiotherapy_d.group_clinician,D-Physiotherapy_d.group_chiled_clinician"/>
+
+</odoo>

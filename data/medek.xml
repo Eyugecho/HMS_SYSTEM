@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="medek_1" model="medek.tag.config">
+        <field name="name">Neck Extension In Prone Position</field>
+     
+        
+    </record>
+
+    <record id="medek_2" model="medek.tag.config">
+        <field name="name">Head Vertical To Forward Slope</field>
+   
+        
+    </record>
+
+    <record id="medek_3" model="medek.tag.config">
+        <field name="name">Head Vertical To Backward Slope</field>
+
+        
+    </record>
+
+    <record id="medek_4" model="medek.tag.config">
+        <field name="name">Head Vertical To Right Side Slope</field>
+       
+      
+    </record>
+    <record id="medek_5" model="medek.tag.config">
+        <field name="name">Head Vertical To Left Side Slope</field>
+   
+      
+    </record>
+    <record id="medek_6" model="medek.tag.config">
+        <field name="name">Neck Extension In Prone / Head Off The Table</field>
+   
+      
+    </record> 
+    <record id="medek_7" model="medek.tag.config">
+        <field name="name">Neck Left Side Flexion / Head Off The Table</field>
+     
+      
+    </record> 
+    <record id="medek_8" model="medek.tag.config">
+        <field name="name">Neck Right Side Flexion / Head Off The Table</field>
+    
+      
+    </record> 
+    <record id="medek_9" model="medek.tag.config">
+        <field name="name">Neck Flexion In Supine / Head Off The Table</field>
+      
+      
+    </record> 
+    <record id="medek_9" model="medek.tag.config">
+        <field name="name">Arms Protective Reaction</field>
+     
+      
+    </record> 
+    <record id="medek_10" model="medek.tag.config">
+        <field name="name">Left Arm Sideways Protective Reaction</field>
+     
+      
+    </record> 
+    <record id="medek_11" model="medek.tag.config">
+        <field name="name">Right Arm Sideways Protective Reaction</field>
+       
+      
+    </record> 
+    <record id="medek_12" model="medek.tag.config">
+        <field name="name">Rolling From Prone To Supine Position</field>
+    
+      
+    </record> 
+    <record id="medek_13" model="medek.tag.config">
+        <field name="name">Rolling From Supine To Prone Position</field>
+     
+      
+    </record> 
+    <record id="medek_14" model="medek.tag.config">
+        <field name="name">Self Supported Sitting Posture</field>
+     
+      
+    </record> 
+    <record id="medek_15" model="medek.tag.config">
+        <field name="name">Unsupported Sitting Posture</field>
+      
+      
+    </record> 
+    <record id="medek_16" model="medek.tag.config">
+        <field name="name">Trunk Vertical To Backward Slope</field>
+     
+      
+    </record> 
+    <record id="medek_17" model="medek.tag.config">
+        <field name="name">Trunk Vertical To Forward Slope</field>
+      
+      
+    </record> 
+    <record id="medek_18" model="medek.tag.config">
+        <field name="name">Trunk Vertical To Right  Slope</field>
+       
+      
+    </record> 
+    <record id="medek_19" model="medek.tag.config">
+        <field name="name">Trunk Vertical To Left  Slope</field>
+       
+      
+    </record> 
+    <record id="medek_20" model="medek.tag.config">
+        <field name="name">Trunk Extension</field>
+       
+      
+    </record> 
+    <record id="medek_21" model="medek.tag.config">
+        <field name="name">Weight Bearing</field>
+   
+    </record> 
+    <record id="medek_22" model="medek.tag.config">
+        <field name="name">Independent Sitting From Prone Position</field>
+    
+      
+    </record> 
+    <record id="medek_23" model="medek.tag.config">
+        <field name="name">Independent Sitting From Supine Position</field>
+     
+      
+    </record> 
+    <record id="medek_24" model="medek.tag.config">
+        <field name="name">Quadruped Locomotion</field>
+    
+      
+    </record> 
+    <record id="medek_25" model="medek.tag.config">
+        <field name="name">Learning / Grasping Standing Posture</field>
+      
+      
+    </record> 
+    <record id="medek_26" model="medek.tag.config">
+        <field name="name">Standing By One Horizontal  Forearm</field>
+       
+      
+    </record> 
+    <record id="medek_27" model="medek.tag.config">
+        <field name="name">Standing By Hands On Wall</field>
+     
+      
+    </record> 
+    <record id="medek_28" model="medek.tag.config">
+        <field name="name">Kneeling To Standing Lean / Grasp</field>
+      
+      
+    </record> 
+    <record id="medek_29" model="medek.tag.config">
+        <field name="name">Kneeling To Standing By Hands on Wall</field>
+       
+      
+    </record> 
+    <record id="medek_30" model="medek.tag.config">
+        <field name="name">Leaning / Grasping Sideways Steps</field>
+      
+      
+    </record> 
+    <record id="medek_31" model="medek.tag.config">
+        <field name="name">Steps By One Hand / Arm Horizontal</field>
+     
+      
+    </record> 
+    <record id="medek_32" model="medek.tag.config">
+        <field name="name">Steps By Hands On Wall</field>
+    
+      
+    </record> 
+    <record id="medek_33" model="medek.tag.config">
+        <field name="name">Free Standing From The Floor</field>
+     
+      
+    </record> 
+    <record id="medek_34" model="medek.tag.config">
+        <field name="name">Free Backward Steps</field>
+     
+      
+    </record> 
+    <record id="medek_35" model="medek.tag.config">
+        <field name="name">Free Steps Out of 10 CM. Box</field>
+      
+      
+    </record> 
+    <record id="medek_36" model="medek.tag.config">
+        <field name="name">Free Steps Down From 10 CM. Box</field>
+   
+      
+    </record> 
+    <record id="medek_37" model="medek.tag.config">
+        <field name="name">Free Steps Up On 10 CM. Box</field>
+       
+      
+    </record> 
+
+
+</odoo>

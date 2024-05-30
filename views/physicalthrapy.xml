@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+<record id="physical_therapy_view_tree" model="ir.ui.view">
+    <field name="name">physical.therapy.view.tree</field>
+    <field name="model">physical.therapy</field>
+    <field name="arch" type="xml" >
+        <tree string="">
+
+                    <field name="mrn_physical" /> 
+                    <field name="clinician_id_physical"/>
+                    <field name="patient_name_physical"/>
+
+        </tree>
+    </field>
+</record>
+
+
+<record id="physical_therapy_view_form" model="ir.ui.view">
+    <field name="name">physical.therapy.view.form</field>
+    <field name="model">physical.therapy</field>
+    <field name="arch" type="xml">
+        <form string="">
+            <sheet>
+                <group>
+                
+                    <group  string="Basic Data">
+
+                        <field name="mrn_physical" />                    
+                         <field name="patient_name_physical" />`
+                         <field name="clinician_id_physical" />
+                         <field name="chiled_age_physical" />
+                         <field name="chiled_age_year_physical" />
+                        <!-- <field name="assigned_nurse" readonly="1"/>
+                        <field name="assigned_to_me"/> -->
+
+
+                        
+
+                        
+                        
+                    </group>
+
+            </group>
+            <group col="6" string="Medical Information" style="font-size: 15px;" class="mt-2 mt-md-0" >
+                <group  colspan="4" groups="D-Physiotherapy_d.group_chiled_clinician">
+                    
+                    <field name="physio_diagnosis" /> 
+                    <field name="current_motor_age" />
+                    <field name="major_problem" />
+                    <field name="current_physical" />
+
+
+                </group>
+                <group colspan="2" groups="D-Physiotherapy_d.group_chiled_clinician" >
+                    <field name="recent_physical" />
+                    <field name="future_intervention" />
+                    <field name="precaution" />
+                    <field name="indication" />
+                    <field name="contraindication" />
+                </group>
+        
+            </group>
+        <notebook>
+        
+        </notebook>
+                
+            
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+            </sheet>
+            
+        </form>
+        
+    </field>
+    
+</record>
+
+<record id="physical_therapy_action_22" model="ir.actions.act_window">
+    <field name="name">Physical Therapy</field>
+    <field name="res_model">physical.therapy</field>
+    <field name="view_mode">tree,form</field> 
+</record>
+    
+     <menuitem
+        id="model_name_physical_therapy_22"
+        name="Physical Therapy"
+        action="physical_therapy_action_22"
+       
+        parent="forms_menu"
+        sequence="25"
+        groups="D-Physiotherapy_d.group_chiled_clinician"/>
+</odoo>

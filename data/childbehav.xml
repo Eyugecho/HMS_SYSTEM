@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="child_behav_1" model="chiled.behavior.config">
+        <field name="name">Considerate of other people's feelings</field>
+        <field name="catagories_assess">oth</field>
+       
+        
+    </record>
+
+    <record id="child_behav_2" model="chiled.behavior.config">
+        <field name="name">Restless, overactive, cannot stay still for long</field>
+        <field name="catagories_assess">oth</field>
+     
+        
+    </record>
+
+    <record id="child_behav_3" model="chiled.behavior.config">
+        <field name="name">Shares readily with other children, for example toys treats, pencils</field>
+        <field name="catagories_assess">oth</field>
+    
+        
+    </record>
+
+    <record id="child_behav_4" model="chiled.behavior.config">
+        <field name="name">Rather solitary, prefers to play alone</field>
+        <field name="catagories_assess">oth</field>
+       
+      
+    </record>
+    <record id="child_behav_5" model="chiled.behavior.config">
+        <field name="name">Generally well behaved, usually does what adults request</field>
+        <field name="catagories_assess">oth</field>
+   
+      
+    </record>
+    <record id="child_behav_6" model="chiled.behavior.config">
+        <field name="name">Many worries or often seems worried</field>
+        <field name="catagories_assess">oth</field>
+
+      
+    </record> 
+    <record id="child_behav_7" model="chiled.behavior.config">
+        <field name="name">Helpful if someone is hurt, upset or feeling ill</field>
+        <field name="catagories_assess">oth</field>
+      
+      
+    </record> 
+    <record id="child_behav_8" model="chiled.behavior.config">
+        <field name="name">Has at least one good friend</field>
+        <field name="catagories_assess">oth</field>
+       
+      
+    </record> 
+    <record id="child_behav_10" model="chiled.behavior.config">
+        <field name="name">Often fights with other children or bullies them</field>
+        <field name="catagories_assess">oth</field>
+      
+    </record> 
+    <record id="child_behav_11" model="chiled.behavior.config">
+        <field name="name">Often unhappy, depressed or tearful</field>
+        <field name="catagories_assess">oth</field>
+      
+    </record> 
+    <record id="child_behav_12" model="chiled.behavior.config">
+        <field name="name">Generally liked by other children</field>
+        <field name="catagories_assess">oth</field>
+     
+    </record> 
+    <record id="child_behav_13" model="chiled.behavior.config">
+        <field name="name">Easily distracted, concentration wanders</field>
+        <field name="catagories_assess">oth</field>
+      
+    </record> 
+    <record id="child_behav_14" model="chiled.behavior.config">
+        <field name="name">Nervous or clingy in new situations, easily loses confidence</field>
+        <field name="catagories_assess">oth</field>
+       
+    </record> 
+    <record id="child_behav_15" model="chiled.behavior.config">
+        <field name="name">Kind to younger children</field>
+        <field name="catagories_assess">oth</field>
+       
+    </record> 
+    <record id="child_behav_16" model="chiled.behavior.config">
+        <field name="name">Often lies or cheats</field>
+        <field name="catagories_assess">oth</field>
+ 
+    </record> 
+    <record id="child_behav_17" model="chiled.behavior.config">
+        <field name="name">Often offers to help other (parents, teachers, other children)</field>
+        <field name="catagories_assess">oth</field>
+ 
+    </record> 
+    <record id="child_behav_18" model="chiled.behavior.config">
+        <field name="name">Thinks things out before acting</field>
+        <field name="catagories_assess">oth</field>
+ 
+    </record> 
+    <record id="child_behav_19" model="chiled.behavior.config">
+        <field name="name">Steals from home, school or elsewhere</field>
+        <field name="catagories_assess">oth</field>
+ 
+    </record> 
+    <record id="child_behav_20" model="chiled.behavior.config">
+        <field name="name">Gets along better with adults than children</field>
+        <field name="catagories_assess">oth</field>
+ 
+    </record> 
+    <record id="child_behav_21" model="chiled.behavior.config">
+        <field name="name">Many fears, easily scared</field>
+        <field name="catagories_assess">oth</field>
+ 
+    </record> 
+    <record id="child_behav_22" model="chiled.behavior.config">
+        <field name="name">Good attention span, sees work through to the end</field>
+        <field name="catagories_assess">oth</field>
+ 
+    </record> 
+    <record id="child_behav_32" model="chiled.behavior.config">
+        <field name="name">confuses left and right slow to learn new games and master puzzles</field>
+        <field name="catagories_assess">oth</field>
+ 
+    </record>
+    <record id="child_behav_33" model="chiled.behavior.config">
+        <field name="name">Has difficulty listening and taking notes at the same time</field>
+        <field name="catagories_assess">oth</field>
+ 
+    </record>
+    <record id="child_behav_34" model="chiled.behavior.config">
+        <field name="name">Performs inconsistently on tasks from one day to the next</field>
+        <field name="catagories_assess">oth</field>
+ 
+    </record>
+    <record id="child_behav_35" model="chiled.behavior.config">
+        <field name="name">Has difficulty generalizing (applying) skills from one situation to another</field>
+        <field name="catagories_assess">oth</field>
+ 
+    </record>
+    <record id="child_behav_23" model="chiled.behavior.config">
+        <field name="name">Fails to pay close attention to details or makes careless</field>
+        <field name="catagories_assess">att</field>
+ 
+    </record> 
+    <record id="child_behav_24" model="chiled.behavior.config">
+        <field name="name">mistakes in schoolwork, work, or other activities</field>
+        <field name="catagories_assess">att</field>
+ 
+    </record> 
+    <record id="child_behav_25" model="chiled.behavior.config">
+        <field name="name">Has difficulty sustaining attention in work tasks or play activities</field>
+        <field name="catagories_assess">att</field>
+ 
+    </record> 
+    <record id="child_behav_26" model="chiled.behavior.config">
+        <field name="name">Does not follow through on instructions and fails to finish schoolwork.</field>
+        <field name="catagories_assess">att</field>
+ 
+    </record> 
+    <record id="child_behav_27" model="chiled.behavior.config">
+        <field name="name">Has difficulty organizing tasks and activities</field>
+        <field name="catagories_assess">att</field>
+ 
+    </record>
+    <record id="child_behav_28" model="chiled.behavior.config">
+        <field name="name">Avoids, dislikes, or is reluctant to engage in tasks that require sustained mental effort such as homework and organizing work tasks</field>
+        <field name="catagories_assess">att</field>
+ 
+    </record>
+    <record id="child_behav_29" model="chiled.behavior.config">
+        <field name="name">Loses things consistently that are necessary for tasks/activities </field>
+        <field name="catagories_assess">att</field>
+ 
+    </record>
+    <record id="child_behav_30" model="chiled.behavior.config">
+        <field name="name">Is easily distracted by outside influences</field>
+        <field name="catagories_assess">att</field>
+ 
+    </record>
+    <record id="child_behav_31" model="chiled.behavior.config">
+        <field name="name">Is forgetful in daily/routine activities </field>
+        <field name="catagories_assess">att</field>
+ 
+    </record>
+    <record id="child_behav_36" model="chiled.behavior.config">
+        <field name="name">Confuses similar-looking letters and numbers</field>
+        <field name="catagories_assess">rea</field>
+ 
+    </record>
+    <record id="child_behav_37" model="chiled.behavior.config">
+        <field name="name">Has difficulty recognizing and remembering sight words</field>
+        <field name="catagories_assess">rea</field>
+ 
+    </record>
+    <record id="child_behav_38" model="chiled.behavior.config">
+        <field name="name">Frequently loses place while reading</field>
+        <field name="catagories_assess">rea</field>
+ 
+    </record>
+    <record id="child_behav_39" model="chiled.behavior.config">
+        <field name="name">Confuses similar-looking words (e.g., beard/bread)</field>
+        <field name="catagories_assess">rea</field>
+ 
+    </record>
+    <record id="child_behav_40" model="chiled.behavior.config">
+        <field name="name">Reverses letter order in words (e.g., saw/was)</field>
+        <field name="catagories_assess">rea</field>
+ 
+    </record>
+    <record id="child_behav_41" model="chiled.behavior.config">
+        <field name="name">Demonstrates poor memory for printed words</field>
+        <field name="catagories_assess">rea</field>
+ 
+    </record>
+    <record id="child_behav_42" model="chiled.behavior.config">
+        <field name="name">Has weak comprehension of ideas and themes</field>
+        <field name="catagories_assess">rea</field>
+ 
+    </record>
+    <record id="child_behav_43" model="chiled.behavior.config">
+        <field name="name">Has significant trouble learning to read</field>
+        <field name="catagories_assess">rea</field>
+ 
+    </record>
+    <record id="child_behav_44" model="chiled.behavior.config">
+        <field name="name">Has trouble naming letters</field>
+        <field name="catagories_assess">rea</field>
+ 
+    </record>
+    <record id="child_behav_45" model="chiled.behavior.config">
+        <field name="name">Has problems associating letter and sounds,</field>
+        <field name="catagories_assess">rea</field>
+ 
+    </record>
+    <record id="child_behav_46" model="chiled.behavior.config">
+        <field name="name">understanding the difference between sounds in words or blending sounds into words</field>
+        <field name="catagories_assess">rea</field>
+ 
+    </record>
+    <record id="child_behav_47" model="chiled.behavior.config">
+        <field name="name">Guesses at unfamiliar words rather than using word analysis skills</field>
+        <field name="catagories_assess">rea</field>
+ 
+    </record>
+    <record id="child_behav_48" model="chiled.behavior.config">
+        <field name="name">Dislikes and avoids writing and copying</field>
+        <field name="catagories_assess">rea</field>
+ 
+    </record>
+    <record id="child_behav_49" model="chiled.behavior.config">
+        <field name="name">Demonstrates delays in learning to copy and write</field>
+        <field name="catagories_assess">rea</field>
+    </record>
+    <record id="child_behav_50" model="chiled.behavior.config">
+        <field name="name">Writing is messy and incomplete, with many cross outs and erasures</field>
+        <field name="catagories_assess">rea</field>
+    </record>
+    <record id="child_behav_51" model="chiled.behavior.config">
+        <field name="name">Has difficulty remembering shapes of letters and numerals</field>
+        <field name="catagories_assess">rea</field>
+    </record>
+    <record id="child_behav_52" model="chiled.behavior.config">
+        <field name="name">Frequently reverses letters, numbers and symbols</field>
+        <field name="catagories_assess">rea</field>
+    </record>
+    <record id="child_behav_53" model="chiled.behavior.config">
+        <field name="name">Uses uneven spacing between letters and words, and has trouble staying ‘on the line’</field>
+        <field name="catagories_assess">rea</field>
+    </record>
+    <record id="child_behav_54" model="chiled.behavior.config">
+        <field name="name">Copies inaccurately (e.g., confuses similar-looking letters and numbers)</field>
+        <field name="catagories_assess">rea</field>
+    </record>
+    <record id="child_behav_55" model="chiled.behavior.config">
+        <field name="name">Spells poorly and inconsistently (e.g., the same word)</field>
+        <field name="catagories_assess">rea</field>
+    </record>
+    <record id="child_behav_56" model="chiled.behavior.config">
+        <field name="name">appears differently other places in the same document</field>
+        <field name="catagories_assess">rea</field>
+    </record>
+    <record id="child_behav_57" model="chiled.behavior.config">
+        <field name="name">Has difficulty with simple counting and one-to-one correspondence between number symbols and items/objects</field>
+        <field  name="catagories_assess">ma</field>
+    </record>
+    <record id="child_behav_58" model="chiled.behavior.config">
+        <field name="name">Difficulty mastering number knowledge(e.g. recognition of quantities without counting)</field>
+        <field  name="catagories_assess">ma</field>
+    </record>
+    <record id="child_behav_59" model="chiled.behavior.config">
+        <field name="name">Has difficulty with learning and memorizing basic addition and subtraction facts</field>
+        <field  name="catagories_assess">ma</field>
+    </record>
+    <record id="child_behav_60" model="chiled.behavior.config">
+        <field name="name">Has difficulty learning strategic counting principles(e.g. by 2, 5, 10, 100)</field>
+        <field  name="catagories_assess">ma</field>
+    </record>
+    <record id="child_behav_61" model="chiled.behavior.config">
+        <field name="name">Poorly aligns numbers resulting in computation errors</field>
+        <field  name="catagories_assess">ma</field>
+    </record>
+    <record id="child_behav_62" model="chiled.behavior.config">
+        <field name="name">Has difficulty estimating (e.g., quantity, value)</field>
+        <field  name="catagories_assess">ma</field>
+    </record>
+    <record id="child_behav_63" model="chiled.behavior.config">
+        <field name="name">Has difficulty with comparisons (e.g., less than, greater than)</field>
+        <field  name="catagories_assess">ma</field>
+    </record>
+    <record id="child_behav_64" model="chiled.behavior.config">
+        <field name="name">Has trouble telling time</field>
+        <field  name="catagories_assess">ma</field>
+    </record>
+    <record id="child_behav_65" model="chiled.behavior.config">
+        <field name="name">Has trouble conceptualizing the passage of time</field>
+        <field  name="catagories_assess">ma</field>
+    </record>
+    <record id="child_behav_66" model="chiled.behavior.config">
+        <field name="name">Has difficulty counting rapidly or making calculations</field>
+        <field  name="catagories_assess">ma</field>
+    </record>
+    <record id="child_behav_67" model="chiled.behavior.config">
+        <field name="name">Has trouble learning multiplication tables, formulas and rules</field>
+        <field  name="catagories_assess">ma</field>
+    </record>
+    <record id="child_behav_68" model="chiled.behavior.config">
+        <field name="name">Has trouble interpreting graphs and charts</field>
+        <field name="catagories_assess">ma</field>
+    </record>
+    <record id="child_behav_69" model="chiled.behavior.config">
+        <field name="name">Demonstrates early delays in learning to speak</field>
+        <field name="catagories_assess">lan</field>
+    </record>
+    <record id="child_behav_70" model="chiled.behavior.config">
+        <field name="name">Has difficulty modulating voice (e.g., too soft, too loud)</field>
+        <field name="catagories_assess">lan</field>
+    </record>
+    <record id="child_behav_71" model="chiled.behavior.config">
+        <field name="name">Has trouble naming people or objects</field>
+        <field name="catagories_assess">lan</field>
+    </record>
+    <record id="child_behav_72" model="chiled.behavior.config">
+        <field name="name">Has difficulty staying on topic</field>
+        <field name="catagories_assess">lan</field>
+    </record>
+    <record id="child_behav_73" model="chiled.behavior.config">
+        <field name="name">Has difficulty re-telling what has just been said</field>
+        <field name="catagories_assess">lan</field>
+    </record>
+    <record id="child_behav_74" model="chiled.behavior.config">
+        <field name="name">Uses vague, imprecise language and has a limited Vocabulary</field>
+        <field name="catagories_assess">lan</field>
+    </record>
+    <record id="child_behav_75" model="chiled.behavior.config">
+        <field name="name">Demonstrates slow and halting speech, using lots of fillers (e.g., uh, um, and, you know, so)</field>
+        <field name="catagories_assess">lan</field>
+    </record>
+    <record id="child_behav_76" model="chiled.behavior.config">
+        <field name="name">Uses poor grammar or misuses words in conversation</field>
+        <field name="catagories_assess">lan</field>
+    </record>
+    <record id="child_behav_77" model="chiled.behavior.config">
+        <field name="name">Mispronounces words frequently</field>
+        <field name="catagories_assess">lan</field>
+    </record>
+    <record id="child_behav_78" model="chiled.behavior.config">
+        <field name="name">Confuses words with others that sound similar</field>
+        <field name="catagories_assess">lan</field>
+    </record>
+    <record id="child_behav_79" model="chiled.behavior.config">
+        <field name="name">Has difficulty rhyming</field>
+        <field  name="catagories_assess">lan</field>
+    </record>
+    <record id="child_behav_80" model="chiled.behavior.config">
+        <field name="name">Has limited interest in books or stories</field>
+        <field name="catagories_assess">lan</field>
+    </record>
+    <record id="child_behav_81" model="chiled.behavior.config">
+        <field name="name">Has difficulty understanding instructions </field>
+        <field name="catagories_assess">lan</field>
+    </record>
+</odoo>

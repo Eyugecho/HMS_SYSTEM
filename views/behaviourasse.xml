@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+<record id="behaviour_assessment_view_tree" model="ir.ui.view">
+    <field name="name">behaviour.assessment.view.tree</field>
+    <field name="model">behaviour.assessment</field>
+    <field name="arch" type="xml" >
+        <tree string="">
+
+                    <field name="mrn_behaviour" /> 
+                    <field name="patient_name_behaviour"/>
+                    <field name="clinician_id_behaviour"/>
+
+        </tree>
+    </field>
+</record>
+
+
+<record id="behaviour_assessment_view_form" model="ir.ui.view">
+    <field name="name">behaviour.assessment.view.form</field>
+    <field name="model">behaviour.assessment</field>
+    <field name="arch" type="xml">
+        <form string="">
+            <sheet>
+                <group>
+                
+                    <group  string="Basic Data">
+
+                        <field name="mrn_behaviour" />                    
+                         <field name="patient_name_behaviour" />`
+                         <field name="clinician_id_behaviour" />
+                         <field name="chiled_age_behaviour" />
+                         <field name="chiled_age_year_behivour" />
+                        <!-- <field name="assigned_nurse" readonly="1"/>
+                        <field name="assigned_to_me"/> -->
+
+
+                        
+
+                        
+                        
+                    </group>
+                    
+        
+                </group>
+        <notebook>
+            <page string="Attention">
+                <button name="compute_create_attension" string="Show Activity" type="object"/>
+
+                <field name="b_chiled" widget="form">
+                    <tree editable='top'>
+
+                    <field name="chiled_assesment"/>   
+                    <field name="chiled_condition" />
+                    <!-- <field name="exe_name" />
+                    <field name="assigned_to_me"/>
+                    <field name="assigned_nurse" readonly="1"/> -->
+                    
+                    </tree>
+                </field>
+            </page>
+            <page string="Reading">
+                <button name="compute_create_attension_2" string="Show Activity" type="object"/>
+
+                <field name="b_chiled_2" widget="form">
+                    <tree editable='top'>
+
+                    <field name="chiled_assesment_2"/>   
+                    <field name="chiled_condition_2" />
+                    <!-- <field name="exe_name" />
+                    <field name="assigned_to_me"/>
+                    <field name="assigned_nurse" readonly="1"/> -->
+                    
+                    </tree>
+                </field>
+            </page>
+            <page string="Math">
+                <button name="compute_create_attension_3" string="Show Activity" type="object"/>
+
+                <field name="b_chiled_3" widget="form">
+                    <tree editable='top'>
+
+                    <field name="chiled_assesment_3"/>   
+                    <field name="chiled_condition_3" />
+                    <!-- <field name="exe_name" />
+                    <field name="assigned_to_me"/>
+                    <field name="assigned_nurse" readonly="1"/> -->
+                    
+                    </tree>
+                </field>
+            </page>
+            <page string="Language">
+                <button name="compute_create_attension_4" string="Show Activity" type="object"/>
+
+                <field name="b_chiled_4" widget="form">
+                    <tree editable='top'>
+
+                    <field name="chiled_assesment_4"/>   
+                    <field name="chiled_condition_4" />
+                    <!-- <field name="exe_name" />
+                    <field name="assigned_to_me"/>
+                    <field name="assigned_nurse" readonly="1"/> -->
+                    
+                    </tree>
+                </field>
+            </page>
+            <page string="Others">
+                <button name="compute_create_attension_5" string="Show Activity" type="object"/>
+
+                <field name="b_chiled_5" widget="form">
+                    <tree editable='top'>
+
+                    <field name="chiled_assesment_5"/>   
+                    <field name="chiled_condition_5" />
+                    <!-- <field name="exe_name" />
+                    <field name="assigned_to_me"/>
+                    <field name="assigned_nurse" readonly="1"/> -->
+                    
+                    </tree>
+                </field>
+            </page>
+        </notebook>
+                
+            
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+            </sheet>
+            
+        </form>
+        
+    </field>
+    
+</record>
+
+<record id="behaviour_assessment_action_7" model="ir.actions.act_window">
+    <field name="name">Behaviour Assesment</field>
+    <field name="res_model">behaviour.assessment</field>
+    <field name="view_mode">tree,form</field> 
+</record>
+    
+     <menuitem
+        id="model_name_behaviour_7"
+        name="Chiled Behaviour Assessment"
+        action="behaviour_assessment_action_7"
+       
+        parent="forms_menu"
+        sequence="29"
+        groups="D-Physiotherapy_d.group_chiled_clinician"/>
+</odoo>

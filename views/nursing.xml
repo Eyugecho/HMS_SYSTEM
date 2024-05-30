@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+<record id="nursing_evaluation_view_tree" model="ir.ui.view">
+    <field name="name">nursing.evaluation.view.tree</field>
+    <field name="model">nursing.evaluation</field>
+    <field name="arch" type="xml" >
+        <tree string="">
+                     <field name="mrn" /> 
+                    <field name="patient_name"/>
+                    <field name="clinician_id"/>
+
+        </tree>
+    </field>
+</record>
+
+
+<record id="nursing_evaluation_view_form" model="ir.ui.view">
+    <field name="name">nursing.evaluation.view.form</field>
+    <field name="model">nursing.evaluation</field>
+    <field name="arch" type="xml">
+        <form string="">
+            <sheet>
+                <group>
+                
+                    <group  string="Basic Data">
+                        <field name="mrn" />                    
+                         <field name="patient_name" />`
+                         <field name="chiled_age_nursing" />
+                         <field name="chiled_age_year_nusing" />
+                         <field name="clinician_id" />
+                        <field name="assigned_nurse" readonly="1"/>
+                        <field name="assigned_to_me"/>
+
+
+                        
+
+                        
+                        
+                    </group>
+                    
+        
+                </group>
+                <group  string="Chief Complaint(Pains)" col="2" groups="D-Physiotherapy_d.group_nurse,D-Physiotherapy_d.group_clinician">
+                          <group>
+                            <field name="neck"/>
+                            <field name="shoulder" />
+                            <field name="elbow"/>
+                            <field name="wrist" />
+                            <field name="hand"/>
+                            <field name="fingers" />
+                            <field name="fingers_R" attrs="{'invisible': [('fingers', '=', False)]}" />
+                            <field name="fingers_L" attrs="{'invisible': [('fingers', '=', False)]}" />
+
+
+
+                          </group>
+                       
+                          <group>
+                            <field name="back_pain" />
+                            <field name="back_pain_u" attrs="{'invisible': [('back_pain', '=', False)]}" />
+                            <field name="back_pain_m" attrs="{'invisible': [('back_pain', '=', False)]}" />
+                            <field name="back_pain_L" attrs="{'invisible': [('back_pain', '=', False)]}" />
+                            <field name="hip" />
+                            <field name="knee"/>
+                            <field name="ankle" />
+                            <field name="foot"/>
+                            <field name="toes" />
+                            <field name="toes_r" attrs="{'invisible': [('toes', '=', False)]}" />
+                            <field name="toes_l" attrs="{'invisible': [('toes', '=', False)]}" />
+
+                          </group>
+                </group>
+                
+            
+                    <group  string="Neurology" col="2" groups="D-Physiotherapy_d.group_nurse,D-Physiotherapy_d.group_clinician">
+                          <group>
+                            <field name="hemi"/>
+                            <field name="hemi_L" />
+                            <field name="paraplegia"/>
+                            <field name="quadriplegia" />
+                            <field name="sci"/>
+                       
+                          </group>
+                       
+                    </group>
+
+                      <group  string="Medical History" col="2" groups="D-Physiotherapy_d.group_nurse,D-Physiotherapy_d.group_clinician">
+                          <group>
+                            <field name="hypertension"/>
+                            <field name="diabetes" />
+                            <field name="heart_disease"/>
+                            <field name="kidney_disease" />
+                   
+
+
+                          </group>
+                       
+                          <group>
+                            <field name="blood_disorder"/>
+                            <field name="gi_disorder"/>
+                            <field name="lung_cancer"/>
+                            <field name="cancer" />
+                            
+                          </group>
+                     </group>
+
+                     <group  string="Vital Sign" col="2" groups="D-Physiotherapy_d.group_nurse,D-Physiotherapy_d.group_chiled,D-Physiotherapy_d.group_clinician,D-Physiotherapy_d.group_chiled_clinician">
+                          <group>
+                            <field name="blood_pressure" placeholder="Infant(0M-12M):SBP(80-100),DBP(55-65) / Toddler(1Y-2Y):SBP(90-105),DBP(55-70) / Preschool(3Y-5Y):SBP(95-107),DBP(60-71)" style="width: 450px;"/>
+                            <field name="heart_rate"  placeholder="Infant(0M-12M):(85-190) / Toddler(1Y-2Y):(98-140) / Preschool(3Y-5Y):(80-120)"/>
+                            <field name="respiratory_rate" placeholder="Infant(0M-12M):(30-55) / Toddler(1Y-2Y):(20-30) / Preschool(3Y-5Y):(20-25)"/>
+                            <field name="pulse_rate" placeholder="Infant(0M-12M):(36.3-37.6) / Toddler(1Y-2Y):(36.3-36.6) / Preschool(3Y-5Y):(36.3c-37.6c)"/>
+                            <field name="oxygen_saturation" placeholder="Infant(0M-12M):(>95 SPO₂) / Toddler(1Y-2Y):(>95 SPO₂) / Preschool(3Y-5Y):(>95 SPO₂)"/>
+                            <field name="waist_circumference" />
+                            <field name="hip_circumference" />
+                            <field name="whr" />
+
+
+
+                   
+
+
+                          </group>
+                       
+                          <group>
+                            <field name="temprature" placeholder="Infant(0M-12M):(36.3-37.6) / Toddler(1Y-2Y):(36.3-36.6) / Preschool(3Y-5Y):(36.3c-37.6c)"/>
+
+                            <field name="blood_glucose_level" />
+                            <field name="blood_glucose_level_rbs" attrs="{'invisible': [('blood_glucose_level', '=', False)]}" />
+                            <field name="blood_glucose_level_fbs" attrs="{'invisible': [('blood_glucose_level', '=', False)]}" />
+
+                            <field name="weight" />
+                            <field name="height" />
+                            <field name="bmi" readonly="true"/>
+
+
+                            
+                          </group>
+                     </group>
+
+                     <group  string="Others" col="2" groups="D-Physiotherapy_d.group_nurse,D-Physiotherapy_d.group_chiled,D-Physiotherapy_d.group_chiled_clinician">
+                          <group>
+                            
+
+
+                            <field name="allergies" />
+                            <field name="a_yes" attrs="{'invisible': [('allergies', '=', False)]}"/>
+                            <field name="a_no" attrs="{'invisible': [('allergies', '=', False)]}"/>
+                            <field name="a_text" attrs="{'invisible': [('allergies', '=', False)]}" />
+                   
+                            <field name="body_type" />
+                            <field name="any_assistive" />
+                            <field name="medication" />
+                            <field name="related_disease" />
+
+
+                          </group>
+                       
+                     </group>
+
+                     <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                    </div>
+            </sheet>
+            
+        </form>
+        
+    </field>
+    
+</record>
+
+<record id="nursing_evaluation_action" model="ir.actions.act_window">
+    <field name="name">Nursing Evaluation</field>
+    <field name="res_model">nursing.evaluation</field>
+    <field name="view_mode">tree,form</field> 
+    <field name="context">{'user_company_id': uid}</field>
+
+</record>
+    
+     <menuitem
+        id="model_name_nursing"
+        name="Nursing Eval"
+        action="nursing_evaluation_action"
+       
+        parent="schedule_menu"
+        sequence="20"
+        groups="D-Physiotherapy_d.group_nurse,D-Physiotherapy_d.group_clinician,D-Physiotherapy_d.group_chiled,D-Physiotherapy_d.group_chiled_clinician"/>
+</odoo>

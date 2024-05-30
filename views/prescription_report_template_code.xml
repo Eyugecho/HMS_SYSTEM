@@ -1,0 +1,4 @@
+<template id="report_prescription_details_code">
+    <t t-call="web.external_layout">
+    </t>
+</template>

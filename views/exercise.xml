@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="exercise_exercise_view_tree" model="ir.ui.view">
+    <field name="name">exercise.exercise.view.tree</field>
+    <field name="model">exercise.exercise</field>
+    <field name="arch" type="xml" >
+        <tree string="" create="0">
+                       
+
+                    <field name="mrn" /> 
+                    <field name="full_name"/>
+                    <field name="clinical_name"/>
+                    <!-- <field name="Nurses"/> -->
+                    <field name="state" widget="badge" decoration-success="state == 'done'" decoration-info="state == 'draft'" decoration-warning="state == 'exercise'"/>
+                    <!-- <field name="progress" widget="percentpie" options="{'style': 'width:100px'}"/> -->
+
+
+
+        </tree>
+    </field>
+</record>
+
+
+<record id="exercise_exercise_view_form" model="ir.ui.view">
+    <field name="name">exercise.exercise.view.form</field>
+    <field name="model">exercise.exercise</field>
+    <field name="arch" type="xml">
+        <form string="">
+                <header>
+                     <button id="button_confirm" name="action_confirm"   string="Confirm" class="btn-primary" type="object" states="draft" groups="D-Physiotherapy_d.group_clinician"/>
+                     <button id="button_done" name="action_done"   string="Mark as Done" class="btn-primary" type="object" states="exercise" groups="D-Physiotherapy_d.group_clinician"/>
+                     <button id="button_cancel" name="action_cancel"   string="cancel" states="done" type="object" confirm="Are you sure you need to cancel?" groups="D-Physiotherapy_d.group_clinician"/>
+
+                    <field name="state" widget="statusbar"  statusbar_visible="draft,exercise,done"/>
+                </header>
+            <sheet>
+                <group>
+                
+                    <group  string="Basic Data">
+
+                        <field name="mrn" /> 
+                        <field name="full_name"/>
+                        <field name="clinical_name"/>
+                        <field name="age"/>
+                        <!-- <field name="Nurses"/> -->
+
+
+                        
+                        
+                        
+                    </group>
+                    
+        
+                </group>
+                <group  string="Exercise Info" col="2">
+                         <group>
+
+                            <field name="exercise_precausion" /> 
+                            <field name="exercise_name" groups="D-Physiotherapy_d.group_clinician"/>
+                            <field name="exe_reptition"/>
+                            <field name="exe_duration"/>
+
+                       
+
+
+
+
+                          </group>
+                       
+                          <group>
+                            
+                            <field name="exe_set" groups="D-Physiotherapy_d.group_clinician"/>
+                            <field name="exe_core_phase" groups="D-Physiotherapy_d.group_clinician"/>
+                            <field name="exe_load" groups="D-Physiotherapy_d.group_clinician"/>
+                            <!-- <field name="exe_color" />               -->
+                           
+
+                          </group>
+                </group>
+
+        <notebook>
+            <page string="Follow Up">
+                <field name="examinnote" widget="form">
+                    <tree editable='top'>
+
+                    <field name="patient_mrn"/>   
+                    <field name="patient_name" />
+                    <!-- <field name="exe_name" />   -->
+                    <field name="assigned_to_me"/>
+                    <field name="assigned_nurse" readonly="1"/>
+                    <field name="due_date"/>
+                    </tree>
+                    </field>
+            </page>
+             
+            <page string="Fine Motor Skill Activities" groups="D-Physiotherapy_d.group_chiled_clinician,D-Physiotherapy_d.group_chiled">
+                <button name="compute_create_fi" string="Show Nursing Activities" type="object"/>
+                <field name="nurs_act" widget="one2many" >
+                    <tree editable='bottom' create='0' delete='0'>
+
+                                <field name="nursing_activity_name" readonly="1" style="width: 400px;"/>
+                                <field name="wee1"/>
+                                <field name="wee2"/>
+                                <field name="wee3"/>
+                                <field name="wee4"/>
+                                <field name="wee5"/>
+                                <field name="wee6"/>
+                                <field name="wee7"/>
+                                <field name="wee8"/>
+                                <field name="due_date"/>
+                                <field name="due_date_state" widget="badge" decoration-danger="due_date_state == 'overdue'" decoration-warning="due_date_state == 'due_today'" decoration-success="due_date_state == 'future'"/>
+
+
+                    
+
+                    
+                    
+                    </tree>
+                </field>
+                
+            </page>
+
+            <page string="Sensory Integration Activities" groups="D-Physiotherapy_d.group_chiled_clinician,D-Physiotherapy_d.group_chiled">
+                <button name="compute_create_nurse_activities_sia" string="Show Nursing Activities" type="object"/>
+                <field name="nurs_act_2" widget="one2many" >
+                    <tree editable='bottom' create='0'>
+
+                                <field name="nursing_activity_name_2" readonly="1" style="width: 400px;"/>
+                                <field name="wee1"/>
+                                <field name="wee2"/>
+                                <field name="wee3"/>
+                                <field name="wee4"/>
+                                <field name="wee5"/>
+                                <field name="wee6"/>
+                                <field name="wee7"/>
+                                <field name="wee8"/>
+                                <field name="due_date"/>
+                                <field name="due_date_state" widget="badge" decoration-danger="due_date_state == 'overdue'" decoration-warning="due_date_state == 'due_today'" decoration-success="due_date_state == 'future'"/>
+                    
+
+                    
+                    
+                    </tree>
+                </field>
+                
+            </page>
+
+            <page string="Specific Gross Motor Activites" groups="D-Physiotherapy_d.group_chiled_clinician,D-Physiotherapy_d.group_chiled">
+                <button name="compute_create_sgma" string="Show Nursing Activities" type="object"/>
+                <field name="nurs_act_3" widget="one2many" >
+                   <!-- <field name="domain">[('nursing_tag.catagories_nurs', '=', 'sgma')]</field> -->
+                    <tree editable='bottom' create='0'>
+                        <field name="nursing_activity_name_3" readonly="1" t-attf-style="width: 400px;"/>
+                        <field name="wee1"/>
+                        <field name="wee2"/>
+                        <field name="wee3"/>
+                        <field name="wee4"/>
+                        <field name="wee5"/>
+                        <field name="wee6"/>
+                        <field name="wee7"/>
+                        <field name="wee8"/>
+                        <field name="due_date"/>
+                        <field name="due_date_state" widget="badge" decoration-danger="due_date_state == 'overdue'" decoration-warning="due_date_state == 'due_today'" decoration-success="due_date_state == 'future'"/>
+                    
+                    </tree>
+                </field>
+            </page>
+ 
+        </notebook>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </sheet>
+            
+        </form>
+        
+    </field>
+    
+</record>
+
+<record id="exercise_exercise_action" model="ir.actions.act_window">
+    <field name="name">Exercise Form</field>
+    <field name="res_model">exercise.exercise</field>
+    <field name="view_mode">tree,form</field> 
+</record>
+    
+<menuitem 
+                id="menu_exercise" 
+                name="Exercise Form" 
+                action="exercise_exercise_action" 
+                parent="forms_menu" 
+                sequence="80"
+                groups="D-Physiotherapy_d.group_nurse,D-Physiotherapy_d.group_clinician,D-Physiotherapy_d.group_chiled,D-Physiotherapy_d.group_chiled_clinician"/>
+</odoo>
+

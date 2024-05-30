@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="nurssing_activity_1" model="nursingact.tag.config">
+        <field name="name">Play Dough /Putting,3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+        
+    </record>
+
+    <record id="nurssing_activity_2" model="nursingact.tag.config">
+        <field name="name">Grasping activities, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+        
+    </record>
+
+    <record id="nurssing_activity_3" model="nursingact.tag.config">
+        <field name="name">Ball Squeeze And Throw 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+        
+    </record>
+
+    <record id="nurssing_activity_4" model="nursingact.tag.config">
+        <field name="name">Prehension And Reach 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record>
+    <record id="nurssing_activity_5" model="nursingact.tag.config">
+        <field name="name">Knobbed Puzzles 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record>
+    <record id="nurssing_activity_6" model="nursingact.tag.config">
+        <field name="name">Bottle And Cup 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_7" model="nursingact.tag.config">
+        <field name="name">Block Up 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_8" model="nursingact.tag.config">
+        <field name="name">Bubble Wrap 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_9" model="nursingact.tag.config">
+        <field name="name">Hand Manipulation 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_9" model="nursingact.tag.config">
+        <field name="name">Turning Pages 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_10" model="nursingact.tag.config">
+        <field name="name">Rubber Band play 3-5 Minutes Per Session</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_11" model="nursingact.tag.config">
+        <field name="name">Holding Rice, For 1 Week Then Home Advice</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_12" model="nursingact.tag.config">
+        <field name="name">Using Tongs And Tweezers 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_13" model="nursingact.tag.config">
+        <field name="name">Nuts And Bolt, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_14" model="nursingact.tag.config">
+        <field name="name">Origami, 1 Item Per Session Simple To Complex</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_15" model="nursingact.tag.config">
+        <field name="name">Beading, 1/2 Times, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_16" model="nursingact.tag.config">
+        <field name="name">Cloth Spine Pinching, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_17" model="nursingact.tag.config">
+        <field name="name">Tearing, 1/2 Times, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_18" model="nursingact.tag.config">
+        <field name="name">Crumbling Paper, 1/2 Times, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_19" model="nursingact.tag.config">
+        <field name="name">Spray Bottle, 1 Time Per Session</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_20" model="nursingact.tag.config">
+        <field name="name">Hanging 3-5 Minutes Per Session</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_21" model="nursingact.tag.config">
+        <field name="name">Climbing 3-5 Minutes Per Session</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_22" model="nursingact.tag.config">
+        <field name="name">Balloon Tennis Play 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_23" model="nursingact.tag.config">
+        <field name="name">Sensory Play, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_24" model="nursingact.tag.config">
+        <field name="name">Block Puzzle, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_25" model="nursingact.tag.config">
+        <field name="name">Block Tower, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_26" model="nursingact.tag.config">
+        <field name="name">Play And Learn Activity Cube, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_27" model="nursingact.tag.config">
+        <field name="name">Motor And Sense, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_28" model="nursingact.tag.config">
+        <field name="name">Elephant Play, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_29" model="nursingact.tag.config">
+        <field name="name">Magnetic Klotski Battle, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_30" model="nursingact.tag.config">
+        <field name="name">Grand Piano Playmat, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_31" model="nursingact.tag.config">
+        <field name="name">Amusement Park Piano, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_32" model="nursingact.tag.config">
+        <field name="name">Pressing Power Crab, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_33" model="nursingact.tag.config">
+        <field name="name">Bowling, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_34" model="nursingact.tag.config">
+        <field name="name">Hand Grip (Ball, Oval), 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_35" model="nursingact.tag.config">
+        <field name="name">Double Sided Learning Table, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_36" model="nursingact.tag.config">
+        <field name="name">Baby Walker, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_37" model="nursingact.tag.config">
+        <field name="name">Construction Machine, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_38" model="nursingact.tag.config">
+        <field name="name">Aeroplan Wall Game, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_39" model="nursingact.tag.config">
+        <field name="name">Skill Board, 3-5 Minutes</field>
+        <field name="catagories_nurs">fi</field>
+      
+    </record> 
+    <record id="nurssing_activity_40" model="nursingact.tag.config">
+        <field name="name">Sand Play, 3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record> 
+    <record id="nurssing_activity_41" model="nursingact.tag.config">
+        <field name="name">Sand Play, 3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record> 
+    <record id="nurssing_activity_42" model="nursingact.tag.config">
+        <field name="name">Outdoor Play, 15 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record> 
+    <record id="nurssing_activity_43" model="nursingact.tag.config">
+        <field name="name">Water Play, 3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record> 
+    <record id="nurssing_activity_44" model="nursingact.tag.config">
+        <field name="name">Sensory Bin, 3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record> 
+    <record id="nurssing_activity_45" model="nursingact.tag.config">
+        <field name="name">Trampoline, 3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record> 
+    <record id="nurssing_activity_46" model="nursingact.tag.config">
+        <field name="name">Rock Play, 3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record> 
+    <record id="nurssing_activity_47" model="nursingact.tag.config">
+        <field name="name">Block Walk Play, 3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record> 
+    <record id="nurssing_activity_48" model="nursingact.tag.config">
+        <field name="name">Bop Moles Playmate, 3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record> 
+    <record id="nurssing_activity_49" model="nursingact.tag.config">
+        <field name="name">Learning Color Puzzle, 3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record> 
+    <record id="nurssing_activity_50" model="nursingact.tag.config">
+        <field name="name">Learning Sense Game, 3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record> 
+    <record id="nurssing_activity_51" model="nursingact.tag.config">
+        <field name="name">Motor and Sense, 3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record>
+    <record id="nurssing_activity_52" model="nursingact.tag.config">
+        <field name="name">Grand Piano Playmate, 3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record>
+    <record id="nurssing_activity_53" model="nursingact.tag.config">
+        <field name="name">Trampoline, 3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record>
+    <record id="nurssing_activity_54" model="nursingact.tag.config">
+        <field name="name">Sewing, 3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record>
+    <record id="nurssing_activity_55" model="nursingact.tag.config">
+        <field name="name">Slide And Stairs, 3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record>
+    <record id="nurssing_activity_56" model="nursingact.tag.config">
+        <field name="name">Ocean Ball, 3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record>
+    <record id="nurssing_activity_57" model="nursingact.tag.config">
+        <field name="name">Scooter,3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record>
+    <record id="nurssing_activity_58" model="nursingact.tag.config">
+        <field name="name">Motor And Sense,3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record>
+    <record id="nurssing_activity_59" model="nursingact.tag.config">
+        <field name="name">Grand Piano Playmat,3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record>
+    <record id="nurssing_activity_60" model="nursingact.tag.config">
+        <field name="name">Grand Piano Playmate, 3-5 Minutes</field>
+        <field name="catagories_nurs">sia</field>
+      
+    </record>
+    <record id="nurssing_activity_61" model="nursingact.tag.config">
+        <field name="name">Ride A Scooter,3-5 Minutes</field>
+        <field name="catagories_nurs">sgma</field>
+      
+    </record>
+    <record id="nurssing_activity_62" model="nursingact.tag.config">
+        <field name="name">Slide And Stairs, 3-5 Minutes</field>
+        <field name="catagories_nurs">sgma</field>
+      
+    </record>
+    <record id="nurssing_activity_63" model="nursingact.tag.config">
+        <field name="name">Ocean Ball, 3-5 Minutes</field>
+        <field name="catagories_nurs">sgma</field>
+      
+    </record>
+    <record id="nurssing_activity_64" model="nursingact.tag.config">
+        <field name="name">Bowling, 3-5 Minutes</field>
+        <field name="catagories_nurs">sgma</field>
+      
+    </record>
+    <record id="nurssing_activity_65" model="nursingact.tag.config">
+        <field name="name">Parallel Bar Exercise, 3-5 Minutes</field>
+        <field name="catagories_nurs">sgma</field>
+      
+    </record>
+    <record id="nurssing_activity_66" model="nursingact.tag.config">
+        <field name="name">Climbing,3-5 Minutes</field>
+        <field name="catagories_nurs">sgma</field>
+      
+    </record>
+    <record id="nurssing_activity_67" model="nursingact.tag.config">
+        <field name="name">Balloon Tennis Play,3-5 Minutes</field>
+        <field name="catagories_nurs">sgma</field>
+      
+    </record>
+    <record id="nurssing_activity_68" model="nursingact.tag.config">
+        <field name="name">Block Walk Play, 3-5 Minutes</field>
+        <field name="catagories_nurs">sgma</field>
+      
+    </record>
+    <record id="nurssing_activity_69" model="nursingact.tag.config">
+        <field name="name">Trampoline, 3-5 Minutes</field>
+        <field name="catagories_nurs">sgma</field>
+      
+    </record>
+    <record id="nurssing_activity_70" model="nursingact.tag.config">
+        <field name="name">Sewing, 3-5 Minutes</field>
+        <field name="catagories_nurs">sgma</field>
+      
+    </record>
+    <record id="nurssing_activity_71" model="nursingact.tag.config">
+        <field name="name">Static Cycle, 3-5 Minutes</field>
+        <field name="catagories_nurs">sgma</field>
+      
+    </record>
+    <record id="nurssing_activity_72" model="nursingact.tag.config">
+        <field name="name">Basketball play,3-5 minutes</field>
+        <field name="catagories_nurs">sgma</field>
+      
+    </record>
+    <record id="nurssing_activity_73" model="nursingact.tag.config">
+        <field name="name">Weight supported gait training, 10-15 min</field>
+        <field name="catagories_nurs">sgma</field>
+      
+    </record>
+</odoo>

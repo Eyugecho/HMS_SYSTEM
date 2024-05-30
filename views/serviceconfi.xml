@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="services_tag_tree_view" model="ir.ui.view">
+        <field name="name">services.tag.tree</field>
+        <field name="model">services.tag</field>
+        <field name="arch" type="xml">
+            <tree string="Service Tag">
+                <field name="service_name"/>
+                <field name="service_active"/>
+                <field name="service_color"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="services_tag_form_view" model="ir.ui.view">
+        <field name="name">services.tag.form</field>
+        <field name="model">services.tag</field>
+        <field name="arch" type="xml">
+            <form string="Service Tag">
+                <sheet>
+                    <group>
+                    <group >
+                       <field name="service_name"/>
+                        <field name="service_active" widget="boolean_toggle"/>
+                    </group>
+                    <group >
+                        
+                        <field name="service_color" widget="color_picker"/>
+                        <field name="service_color_2" widget="color" group="base.group_no_one"/>
+
+
+                     </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="services_tag_action" model="ir.actions.act_window">
+        <field name="name">service tag</field>
+        <field name="res_model">services.tag</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+ 
+
+           
+    <menuitem 
+                id="serv_menu_2" 
+                name="Service Configuration" 
+                action="services_tag_action" 
+                parent="confi_menu" 
+                sequence="88"
+                groups="D-Physiotherapy_d.group_clinician,D-Physiotherapy_d.group_receptionist,D-Physiotherapy_d.group_chiled_receiption,D-Physiotherapy_d.group_chiled_clinician"/>
+</odoo>

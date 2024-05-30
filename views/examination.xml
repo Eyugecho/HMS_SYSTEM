@@ -1,0 +1,1057 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="examination_form_view_tree" model="ir.ui.view">
+        <field name="name">examination.form.view.tree</field>
+        <field name="model">examination.form</field>
+        <field name="arch" type="xml">
+            <tree string="" create="0" sample="1">
+                    <field name="mrn" />     
+                    <field name="date" />     
+                    <field name="clinician1" />  
+                    
+            </tree>
+        </field>
+    </record>   
+
+<record id="examination_form_view_form" model="ir.ui.view">
+    <field name="name">examination.form.view.form</field>
+    <field name="model">examination.form</field>
+    <field name="arch" type="xml">
+        <form string="" create="0">
+
+          
+            <sheet>
+             <div class="oe_button_box" name="button_box">
+                <button name="view_nursing_evaluation" icon= "fa-solid fa-stethoscope" string="View Nursing Evaluation" type="object" class="oe_highlight" />
+                <button  name="open_investigation"  icon="fa-file"   string="Investigation Form"  type="object" class="oe_highlight" groups="D-Physiotherapy_d.group_clinician"/>
+                <button string="Medical Certificate Form" name="open_medical" icon="fa-pencil-square-o" type="object" class="oe_highlight"/>
+                <button string="Referal Form" name="referal_form" icon="fa-plus-square" type="object" class="oe_highlight"/>
+                <button string="Child Behaviour Assessment" name="view_chiled_behaviour" icon="fa-brands fa-wpforms" type="object" class="oe_highlight" groups="D-Physiotherapy_d.group_chiled_clinician"/>
+                <button string="Physical Therapy" name="view_physical_thrapy" icon="fa-solid fa-paste" type="object" class="oe_highlight" groups="D-Physiotherapy_d.group_chiled_clinician"/>
+                <button string="Physician Consultation" name="view_physician_consultation" icon="fa-file" type="object" class="oe_highlight" groups="D-Physiotherapy_d.group_chiled_clinician"/>
+                <button string="Exercise Form" name="open_Exercise" icon="fa-wheelchair"  type="object" class="oe_highlight"/>
+
+
+             </div>
+
+
+            <group>
+                <group string="Basic Information" style="font-size: 15px;">
+                    <field name="mrn" readonly="1"/>
+                    <field name="patient_name" readonly="1"/> 
+                    <field name="is_chiled_nurse" invisible="1"/>
+                    <field name="chiled_age" readonly="1" groups="D-Physiotherapy_d.group_chiled_clinician"/>   
+                    <field name="chiled_age_year" readonly="1" groups="D-Physiotherapy_d.group_chiled_clinician"/>   
+                    <field name="date" />     
+                    <field name="clinician1" readonly="1" />
+                    <field name="case_e" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}" groups="D-Physiotherapy_d.group_clinician"/>
+                    <field name="catagori" widget="many2many_tags" options="{'color_field': 'cata_color'}" readonly="0" />
+                    <field name="serv" widget="many2many_tags" options="{'color_field': 'service_color'}" readonly="0"/>
+                    <field name="sub_service" />
+                    <field name="neuro_doc_status" invisible="1"/>
+                    <field name="elbow_restand_status" invisible="1"/>
+                    <field name="lumbar_status" invisible="1"/>
+                    <field name="ankel_status" invisible="1"/>
+                    <field name="cervical_status" invisible="1"/>
+                    <field name="shoulder_status" invisible="1"/>
+                    <field name="knee_status" invisible="1"/>
+                    <field name="thoracic_status" invisible="1"/>
+                    <field name="nurology_status" invisible="1"/>
+
+
+
+                    <!-- <field name="image_url" widget="image" />    -->
+                </group>
+            </group>
+          
+                <group col="6" string="Medical Information" style="font-size: 15px;" class="mt-2 mt-md-0" groups="D-Physiotherapy_d.group_partimer" attrs="{'invisible': [('is_chiled_nurse', '=', True)]}">
+
+                <group  colspan="4"  groups="D-Physiotherapy_d.group_clinician" >
+                        
+
+                         <field name="cc" />  
+                        <field name="hpi" />                    
+                        <field name="rom" />     
+                        <field name="lld" />     
+                        <field name="mmt" />
+                        <field name="reflex" />
+                        <field name="rpmh" />     
+                        <field name="dignostics_imaging_finding" />
+                </group>
+                <group  colspan="4" groups="D-Physiotherapy_d.group_chiled_clinician" >
+                    
+                    <field name="medical_diagnosis" /> 
+                    <field name="record" />
+                    <field name="prenatals" />
+                    <field name="postnatals" />
+
+
+                </group>
+                <group colspan="2" groups="D-Physiotherapy_d.group_chiled_clinician" >
+                    <field name="muscletone" />
+                    <field name="reflexes" />
+                    <field name="skeletal_condition" />
+                    <field name="initial_cme_program" />
+                </group>
+                <group colspan="2" groups="D-Physiotherapy_d.group_clinician" >
+                  
+                        <field name="observation" />
+                        <field name="palpation" />  
+            
+                        <field name="sensory" />     
+                        <field name="special_test" />     
+                        <field name="function" />     
+                        <field name="pt" />
+                        <field name="treatment" />
+                       
+
+                     
+                        <field name="nurological_defect" attrs="{'invisible': [('lumbar_status', '!=', 'present')]}"/>                        
+                        <field name="nurological_remark" attrs="{'invisible': [('nurological_defect', '=', False)]}"/>
+                        <field name="forward_bend" attrs="{'invisible': [('cervical_status', '!=', 'present')]}"/>                        
+                        <field name="forward_bend_remark" attrs="{'invisible': [('forward_bend', '=', False)]}"/>
+                         <field name="backward_bend" attrs="{'invisible': [('cervical_status', '!=', 'present')]}"/>                        
+                        <field name="backward_bend_remark" attrs="{'invisible': [('backward_bend', '=', False)]}"/>
+                </group>
+                </group>
+               <group col="6" string="Medical Information" style="font-size: 15px;" class="mt-2 mt-md-0" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician" >
+
+                <group  colspan="4">
+                        <field name="sergical_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                        <field name="physical_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                        <field name="heent_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                        <field name="egs_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                        <field name="chest_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                        <field name="plan_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                        <field name="cvs_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                </group>
+                
+                <group colspan="2">
+                  
+                         <field name="abdomen_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                        <field name="gus_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                        <field name="mss_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                        <field name="intergumentary_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                        <field name="assessment_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                        <field name="treatment_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                         <field name="note_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+
+                        <!-- <field name="elbow_extension_hand_wrist_elbow" widget="radio" options="{'horizontal': true}"/> -->
+
+
+                </group>
+                </group>
+
+
+            <group col="6" string="Nurology" style="font-size: 15px;" class="mt-2 mt-md-0" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician" >
+
+                <group  colspan="4">
+                       <field name="consciousness_nurology_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                        <field name="cranial_nerve_nurology_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                        <field name="motor_nurology_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                        <field name="sensory_nurology_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                </group>
+                
+                <group colspan="2">
+                  
+                       <field name="cordination_nurology_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                        <field name="gaut_nurology_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+                        <field name="other_nurology_nuro_doc" attrs="{'invisible': [('neuro_doc_status', '!=', 'present')]}"/>
+
+
+                </group>
+            </group>
+
+
+                  
+
+      
+
+
+
+
+        <notebook>
+
+            <page string="Strength" attrs="{'invisible': [('lumbar_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_strength_lumbar">
+            <tree editable='bottom'>
+
+            <field name="strength_hand_wrist_elbow_right"/>
+            <field name="strength_lumbar" />
+            <field name="lumbar_selection" />
+            <field name="remark_hand_wrist_elbow_clin_6" />
+            </tree>
+            </field>
+            </page>
+          <page string="Lumbar Protective" attrs="{'invisible': [('lumbar_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_protect_lumbar">
+            <tree editable='bottom'>
+
+            <field name="lumbar_mech"/>
+            <field name="lumbar_protective" />
+
+            </tree>
+            </field>
+            </page>
+          <page string="Rom Lumbar" attrs="{'invisible': [('lumbar_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_rom_lumbar">
+            <tree editable='bottom'>
+
+            <field name="rom_lumbar"/>
+            <field name="remark_lum" />
+
+            </tree>
+            </field>
+            </page>
+          <page string="Biomechanical Lumbar" attrs="{'invisible': [('lumbar_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_bio_lumbar">
+            <tree editable='bottom'>
+
+            <field name="bio_lumbar"/>
+            <field name="remark_lum_bio" />
+
+            </tree>
+            </field>
+            </page>
+          <page string="Lower Extermity" attrs="{'invisible': [('lumbar_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_exterm_lumbar">
+            <tree editable='bottom'>
+
+            <field name="extermity_lumbar"/>
+            <field name="remark_lum_exterm" />
+
+            </tree>
+            </field>
+            </page>
+          <page string="Clinician Impressions" attrs="{'invisible': [('lumbar_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_impression_lumbar">
+            <tree editable='bottom'>
+
+            <field name="clinician_imperssion_lumbar"/>
+            <field name="remark_lumbar_imperssion" />
+
+            </tree>
+            </field>
+            </page>
+          <page string="Clinician Recommendation" attrs="{'invisible': [('lumbar_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_recommendation_lumbar">
+            <tree editable='bottom'>
+
+            <field name="clinician_recommendation_lumbar"/>
+            <field name="remark_recommend_lumbar" />
+            <field name="pres_freq_lumbar" />
+            <field name="time_per_week_lumbar" />
+
+            </tree>
+            </field>
+            </page>
+            <page string="Strength" attrs="{'invisible': [('ankel_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_ankel">
+            <tree editable='bottom'>
+
+            <field name="strength_ankle"/>
+            <field name="ankel_selection" />
+            <field name="remark_ankel" />
+         
+            </tree>
+            </field>
+            </page>
+            <page string="ROM" attrs="{'invisible': [('ankel_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_ankel_rom">
+            <tree editable='bottom'>
+
+            <field name="rom_ankle"/>
+            <field name="strength_ankle" />
+            <field name="remark_ankle_2" />
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Biomechanical Gait" attrs="{'invisible': [('ankel_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_ankel_bio">
+            <tree editable='bottom'>
+
+            <field name="biomech_ankle"/>
+            <field name="remark_ankle_3" />
+           
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Muscle Flexibility" attrs="{'invisible': [('ankel_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_ankel_muscle">
+            <tree editable='bottom'>
+
+            <field name="remark_ankle_4"/>
+
+           
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Palpation" attrs="{'invisible': [('ankel_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_ankel_paplation">
+            <tree editable='bottom'>
+
+            <field name="palpation_ankle"/>
+            <field name="remark_ankle_5"/>
+
+
+           
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Clinician Impressions" attrs="{'invisible': [('ankel_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_ankel_impression">
+            <tree editable='bottom'>
+
+            <field name="clinician_imperssion_ankle"/>
+            <field name="remark_ankle_imperssion"/>
+
+
+           
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Clinician Recommendation" attrs="{'invisible': [('ankel_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_ankel_recommendation">
+            <tree editable='bottom'>
+
+            <field name="clinician_recommendation_ankle"/>
+            <field name="pres_freq_ankle"/>
+            <field name="time_per_week_ankle"/>
+            <field name="remark_recommend_ankle"/>
+
+
+           
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Strength" attrs="{'invisible': [('cervical_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_cervical">
+            <tree editable='bottom'>
+
+            <field name="strength_cervical"/>
+            <field name="strength_cervical_right_left" />
+            <field name="cervical_selection" />
+            <field name="remark_cervical" />
+            </tree>
+            </field>
+            </page>
+            <page string="ROM" attrs="{'invisible': [('cervical_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_cervical_rom">
+            <tree editable='bottom'>
+
+            <field name="rom_cervical"/>
+            <field name="strength_cervical_rom" />
+            <field name="remark_cervical_2" />
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Biomechanical" attrs="{'invisible': [('cervical_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_cervical_bio">
+            <tree editable='bottom'>
+
+            <field name="biomech_cervical"/>
+            <field name="cervical_selection_2" />
+            <field name="remark_cervical_3" />
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Test" attrs="{'invisible': [('cervical_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_cervical_test">
+            <tree editable='bottom'>
+
+            <field name="test_cervical"/>
+            <field name="cervical_selection_3" />
+            <field name="remark_cervical_4" />
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Muscle Flexibility" attrs="{'invisible': [('cervical_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_cervical_muscle">
+            <tree editable='bottom'>
+
+            <field name="muscle_cervical"/>
+            <field name="cervical_selection_4" />
+            <field name="remark_cervical_5" />
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Palpation" attrs="{'invisible': [('cervical_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_cervical_palpation">
+            <tree editable='bottom'>
+
+            <field name="palpation_cervical"/>
+            <field name="cervical_selection_5" />
+            <field name="remark_cervical_6" />
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Clinical Impressions" attrs="{'invisible': [('cervical_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_cervical_immpression">
+            <tree editable='bottom'>
+
+            <field name="clinician_imperssion_cervical"/>
+            <field name="remark_cervical_imperssion" />
+     
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Clinical Recommendation" attrs="{'invisible': [('cervical_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_cervical_recommendation">
+            <tree editable='bottom'>
+
+            <field name="clinician_recommendation_cervical"/>
+            <field name="remark_recommend_cervical" />
+     
+         
+            </tree>
+            </field>
+            </page>
+            <page string="ROM" attrs="{'invisible': [('shoulder_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_shoulder">
+            <tree editable='bottom'>
+
+            <field name="rom_shoulder"/>
+            <field name="remark_shoulder_1" />
+     
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Accessory Motion" attrs="{'invisible': [('shoulder_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_shoulder_accessory">
+            <tree editable='bottom'>
+
+
+            <field name="accessory_shoulder" />
+            <field name="shoulder_selection" />
+            <field name="remark_shoulder_2" />
+
+
+         
+            </tree>
+            </field>
+            </page>
+            <page string="MMT" attrs="{'invisible': [('shoulder_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician"> 
+            <field name="exam_shoulder_mmt">
+            <tree editable='bottom'>
+
+
+            <field name="mmt_shoulder" />
+            <field name="shoulder_selection_2" />
+            <field name="remark_shoulder_3" />
+
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Palpation" attrs="{'invisible': [('shoulder_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_shoulder_palpation">
+            <tree editable='bottom'>
+
+
+            <field name="palpation_shoulder" />
+            <field name="remark_shoulder_4" />
+       
+
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Resisted Isometric" attrs="{'invisible': [('shoulder_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_shoulder_isometric">
+            <tree editable='bottom'>
+
+
+            <field name="isometric_shoulder" />
+            <field name="remark_shoulder_5" />
+            <field name="shoulder_selection_3" />
+       
+
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Clinical Impressions" attrs="{'invisible': [('shoulder_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_shoulder_impression">
+            <tree editable='bottom'>
+
+
+            <field name="impressions_shoulder" />
+            <field name="remark_shoulder_6" />
+         
+       
+
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Clinical Recommendation" attrs="{'invisible': [('shoulder_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_shoulder_recommendation">
+            <tree editable='bottom'>
+
+
+            <field name="recommendation_shoulder" />
+            <field name="pres_freq_shoulder" />
+            <field name="time_per_week_shoulder" />
+            <field name="remark_shoulder_7" />
+         
+       
+
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Strength" attrs="{'invisible': [('knee_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_knee_strength">
+            <tree editable='bottom'>
+
+
+            <field name="strength_knee" />
+            <field name="knee_selection" />
+            <field name="remark_knee" />
+          
+         
+       
+
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Rom" attrs="{'invisible': [('knee_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_knee_rom">
+            <tree editable='bottom'>
+
+
+            <field name="rom_knee" />
+            <field name="knee_rl" />
+            <field name="remark_knee_2" />
+          
+         
+       
+
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Biomechanical(Knee)" attrs="{'invisible': [('knee_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_knee_biomech">
+            <tree editable='bottom'>
+
+
+            <field name="biomechanical_knee" />
+            <field name="knee_selection_2" />
+            <field name="remark_knee_3" />
+          
+         
+       
+
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Special Test" attrs="{'invisible': [('knee_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_knee_specialtest">
+            <tree editable='bottom'>
+
+
+            <field name="specialtest_knee" />
+            <field name="knee_selection_3" />
+            <field name="remark_knee_4" />
+          
+         
+       
+
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Girth" attrs="{'invisible': [('knee_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_knee_girth">
+            <tree editable='bottom'>
+
+
+            <field name="girth_knee" />
+            <field name="knee_rl_2" />
+            <field name="remark_knee_5" />
+          
+         
+       
+
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Clinician Impression" attrs="{'invisible': [('knee_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_knee_impression">
+            <tree editable='bottom'>
+
+
+            <field name="impressions_knee" />
+            <field name="remark_knee_6" />
+           
+          
+         
+       
+
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Incision" attrs="{'invisible': [('knee_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_knee_incision">
+            <tree editable='bottom'>
+
+
+            <field name="incision_knee" />
+            <field name="remark_knee_8" />
+           
+          
+         
+       
+
+         
+            </tree>
+            </field>
+            </page>
+            <page string="Clinical Recommendation" attrs="{'invisible': [('knee_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_knee_recommendation">
+            <tree editable='bottom'>
+
+            <field name="recommendation_knee" />
+            <field name="pres_freq_knee" />
+            <field name="time_per_week_knee" />
+            <field name="remark_knee_7" />
+
+            </tree>
+            </field>
+            </page>
+            <page string="Strength" attrs="{'invisible': [('thoracic_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_thoracic">
+            <tree editable='bottom'>
+
+            <field name="strength_thoracic" />
+            <field name="thoracic_rl" />
+            <field name="remark_thoracic" />
+    
+
+            </tree>
+            </field>
+            </page>
+            <page string="Rom" attrs="{'invisible': [('thoracic_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_thoracic_rom">
+            <tree editable='bottom'>
+
+            <field name="rom_thoracic" />
+            <field name="thoracic_rl_2" />
+            <field name="remark_thoracic_2" />
+    
+
+            </tree>
+            </field>
+            </page>
+            <page string="Biomechanical Thoracic" attrs="{'invisible': [('thoracic_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_thoracic_biomechanical">
+            <tree editable='bottom'>
+
+            <field name="biomechanical_thoracic" />
+            <field name="remark_thoracic_3" />
+
+    
+
+            </tree>
+            </field>
+            </page>
+            <page string="Lumbar" attrs="{'invisible': [('thoracic_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_thoracic_lumbar">
+            <tree editable='bottom'>
+
+            <field name="lumbar_thoracic" />
+            <field name="thoracic_selection" />
+            <field name="remark_thoracic_lumbar_4" />
+
+    
+
+            </tree>
+            </field>
+            </page>
+            <page string="Thoracic" attrs="{'invisible': [('thoracic_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_thoracic_tho">
+            <tree editable='bottom'>
+
+            <field name="tho_thoracic" />
+            <field name="thoracic_selection_2" />
+            <field name="remark_thoracic_5" />
+
+    
+
+            </tree>
+            </field>
+            </page>
+            <page string="Palpation" attrs="{'invisible': [('thoracic_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_thoracic_palpation">
+            <tree editable='bottom'>
+            
+            <field name="palpation_thoracic" />
+            <field name="remark_thoracic_6" />
+            </tree>
+            </field>
+            </page>
+            <page string="Clinical Impression" attrs="{'invisible': [('thoracic_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_thoracic_impressions">
+            <tree editable='bottom'>
+
+            <field name="impressions_thoracic" />
+            <field name="remark_thoracic_7" />
+            </tree>
+            </field>
+            </page>
+            <page string="Clinical Recommendation" attrs="{'invisible': [('thoracic_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_thoracic_recommendation">
+            <tree editable='bottom'>
+
+            <field name="recommendation_thoracic" />
+            <field name="pres_freq_thoracic" />
+            <field name="time_per_week_thoracic" />
+            <field name="remark_thoracic_8" />
+            </tree>
+            </field>
+            </page>
+
+            <page string="Muscle Tone" attrs="{'invisible': [('nurology_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_nuropt_muscletone">
+            <tree editable='bottom'>
+
+            <field name="muscletone_nuropt" />
+            <field name="remark_nuropt" />
+
+            </tree>
+            </field>
+            </page>
+            <page string="Sensation" attrs="{'invisible': [('nurology_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_nuropt_sensation">
+            <tree editable='bottom'>
+
+            <field name="remark_nuropt_2" />
+
+            </tree>
+            </field>
+            </page>
+
+
+
+
+            <page string="Consci." attrs="{'invisible': [('nurology_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_nuropt_consciousness">
+            <tree editable='bottom'>
+
+            <field name="remark_consciousness_3" />
+
+            </tree>
+            </field>
+            </page>
+            <page string="Motor Func." attrs="{'invisible': [('nurology_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_nuropt_motor">
+            <tree editable='bottom'>
+
+            <field name="remark_nuropt_3" />
+
+            </tree>
+            </field>
+            </page>
+            <page string="List of Func." attrs="{'invisible': [('nurology_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_nuropt_listoffunction">
+            <tree editable='bottom'>
+
+            <field name="remark_nuropt_4" />
+
+            </tree>
+            </field>
+            </page>
+            <page string="Balance/Coordi." attrs="{'invisible': [('nurology_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_nuropt_balance">
+            <tree editable='bottom'>
+
+            <field name="balance_nuropt" />
+            <field name="remark_nuropt_5" />
+
+            </tree>
+            </field>
+            </page>
+            <page string="Muscle Power" attrs="{'invisible': [('nurology_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_nuropt_musclepow">
+            <tree editable='bottom'>
+
+            <field name="musclepow_nuropt" />
+            <field name="musclepow_rl" />
+            <field name="remark_nuropt_6" />
+
+            </tree>
+            </field>
+            </page>
+            <page string="Reflex" attrs="{'invisible': [('nurology_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_nuropt_reflex">
+            <tree editable='bottom'>
+
+            <field name="reflex_nuropt" />            
+            <field name="remark_nuropt_7" />
+
+            </tree>
+            </field>
+            </page>
+            <page string="ASIA" attrs="{'invisible': [('nurology_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_nuropt_asia">
+            <tree editable='bottom'>
+
+            <field name="asia_nuropt" />
+
+            </tree>
+            </field>
+            </page>
+            <page string="Clinical Imp." attrs="{'invisible': [('nurology_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_nuropt_immpression">
+            <tree editable='bottom'>
+
+            <field name="immpression_nuropt" />
+            <field name="remark_nuropt_8" />
+
+            </tree>
+            </field>
+            </page>
+            <page string="Clinical Reco." attrs="{'invisible': [('nurology_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_nuropt_recommendation">
+            <tree editable='bottom'>
+
+            <field name="recommendation_nuropt" />
+            <field name="pres_freq_nuropt_3" />
+            <field name="time_per_week_nurop_3" />
+            <field name="remark_nuropt_9" />
+
+            </tree>
+            </field>
+            </page>
+            <page string="Strength" attrs="{'invisible': [('elbow_restand_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_strength">
+            <tree editable='bottom'>
+
+            <field name="strength_hand_wrist_elbow_right"/>
+            <field name="strength_hand_wrist_elbow_left" />
+            <field name="elbow_extension_hand_wris" />
+            <field name="remark_hand_wrist_elbow_clin_5" />
+            </tree>
+            </field>
+            </page>
+            <page string="ROM" attrs="{'invisible': [('elbow_restand_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_rom">
+            <tree editable='bottom'>
+
+            <field name="rom_hand_wrist_elbow_right"/>
+            <field name="rom_hand_wrist_elbow_left" />
+            <field name="rom_hand_wrist_elbow_describtion" />
+            <field name="remark_hand_wrist_elbow_clin_4" />
+            </tree>
+            </field>
+            </page>
+
+            <page string="Structural" attrs="{'invisible': [('elbow_restand_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="structu">
+            <tree editable='bottom'>
+
+            <field name="muscle_fexiability_hand_wrist_elbow"/>
+            <field name="remark_hand_wrist_elbow_clin_3" />
+            </tree>
+            </field>
+            </page>
+            <page string="Muscle Flexiability" attrs="{'invisible': [('elbow_restand_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="muscl_flex">
+            <tree editable='bottom'>
+
+            <field name="muscle_fexiability_hand_wrist_elbow"/>
+            <field name="remark_hand_wrist_elbow_clin_2" />
+            </tree>
+            </field>
+            </page>
+            <page string="Clinical Impression" attrs="{'invisible': [('elbow_restand_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="impre_clicni">
+            <tree editable='bottom'>
+
+            <field name="clinician_imperssion_hand_wrist_elbow"/>
+            <field name="remark_hand_wrist_elbow_clin_1" />
+            </tree>
+            </field>
+            </page>
+            <page string="Clinical Recommendation" attrs="{'invisible': [('elbow_restand_status', '!=', 'present')]}" groups="D-Physiotherapy_d.group_clinician">
+            <field name="exam_immpression">
+            <tree editable='bottom'>
+
+            <field name="clinician_recommendation_hand_wrist_elbow"/>
+            <field name="remark_hand_wrist_elbow_clin_6" />
+            <field name="pres_freq" />
+            <field name="time_per_week" />
+
+
+            </tree>
+            </field>
+            </page>
+        
+            <page string="Medek Therapy Examination" groups="D-Physiotherapy_d.group_chiled_clinician,D-Physiotherapy_d.group_partimer"  attrs="{'invisible': [('is_chiled_nurse', '=', True)]}">
+                <button name="compute_create_medk" string="Show Medek" type="object"/>
+                <field name="mede_k" widget="form" >
+                    <tree editable='bottom' create='0'>
+
+                                <field name="medek_name" readonly="1"/>
+                                <field name="medek_asses"/>
+                                <field name="medek_control"/>
+                                <field name="functional_age" />
+
+                    
+
+                    
+                    
+                    </tree>
+                </field>
+                <group col="6" class="mt-2 mt-md-0">
+
+                    <group  colspan="4">
+                        <field name="ttu"  colspan="2" nolabel="1" readonly="true"/>
+                    </group>
+                    
+                    <group colspan="2">
+                    <field name="functional_age_total"  colspan="2"/>
+                    <field name="chronical_age" />
+                    <field name="functional_gap" />
+                    </group>
+
+
+                    
+                </group>
+                
+            </page>
+
+
+
+            <page string="Prescription">
+            <field name="pre_session">
+            <tree editable='bottom'>
+
+            <field name="drug_name" />
+            <field name="price" groups="D-Physiotherapy_d.group_receptionist,D-Physiotherapy_d.group_chiled_receiption"/>
+            
+        
+
+            
+            </tree>
+            </field>
+            </page>
+
+            <page string="Other Prescription">
+            <field name="pre_session_product">
+            <tree editable="bottom">
+
+            <field name="product_id" />
+            <field name="unit_price" groups="D-Physiotherapy_d.group_receptionist,D-Physiotherapy_d.group_chiled_receiption"/>
+            <field name="quantity" />
+            
+
+            
+        
+
+            
+            </tree>
+
+            </field>
+            <group col="6" class="mt-2 mt-md-0">
+
+                <group  colspan="4">
+                    <field name="ttu_1"  colspan="2" nolabel="1" readonly="true"/>
+                </group>
+                
+                <group colspan="2">
+                 <field name="total"  colspan="2" groups="D-Physiotherapy_d.group_receptionist,D-Physiotherapy_d.group_chiled_receiption"/>
+                </group>
+
+
+                
+            </group>
+            
+            </page>
+            <page string="Appointment">
+                <field name="appo" widget="form" readonly="1">
+                    <tree editable='bottom'>
+
+                    <field name="mrn" />
+                    <field name="clincian"/>  
+                    <field name="start_date"/>
+                    
+
+                    
+                    
+                    </tree>
+                </field>
+        
+                
+
+
+            </page>
+
+
+                              
+                        <!-- <page string="Medek Tags">
+                            <field name="mede_k" />
+                        </page> -->
+              
+        </notebook>
+
+    
+                    <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                    </div>
+            </sheet>
+            
+        </form>
+   
+   
+   
+    </field>
+</record>     
+<record id="examination_form_action" model="ir.actions.act_window">
+    <field name="name">Examination</field>
+    <field name="res_model">examination.form</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[('clinician1.user_id', '=', uid)]</field>
+</record>  
+<record id="examination_form_action_tree" model="ir.actions.act_window.view">
+    <field name="sequence" eval="1"/>
+    <field name="view_mode">tree</field>
+    <field name="act_window_id" ref="examination_form_action"/>
+    <field name="view_id" ref="examination_form_view_tree"/>
+</record>
+<record id="examination_form_action_form" model="ir.actions.act_window.view">
+    <field name="sequence" eval="2"/>
+    <field name="view_mode">form</field>
+    <field name="act_window_id" ref="examination_form_action"/>
+    <field name="view_id" ref="examination_form_view_form"/>
+</record>
+<menuitem
+        id="examination_menu"
+        name="Examination Form"
+        action="examination_form_action"
+        parent="droga_physio" 
+        sequence="3"
+        groups="D-Physiotherapy_d.group_clinician,D-Physiotherapy_d.group_chiled_clinician"/>
+
+</odoo>
