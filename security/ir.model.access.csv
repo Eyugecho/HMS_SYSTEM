@@ -11,11 +11,16 @@ access_droga_medicalcertifcates,access_droga_medicalcertifcates,model_droga_medi
 access_set_reminder,access_set_reminder,model_set_reminder,,1,1,1,1
 access_referal_form,access_referal_form,model_referal_form,,1,1,1,1
 access_examination_form,access_examination_form,model_examination_form,,1,1,1,1
+<<<<<<< HEAD
 access_investigation_form,access_investigation_form,model_investigation_form,,1,1,1,1
+=======
+access_nursing_evaluation,access_nursing_evaluation,model_nursing_evaluation,,1,1,1,1
+>>>>>>> origin/main
 access_physio_neurology,access_physio_neurology,model_physio_neurology,,1,1,1,1
 access_medical_history,access_medical_history,model_medical_history,,1,1,1,1
 access_physio_neurology,access_physio_neurology,model_physio_neurology,,1,1,1,1
 access_physio_complian_pains,access_physio_complian_pains,model_physio_complian_pains,,1,1,1,1
+<<<<<<< HEAD
 access_note_preclass,access_note_preclass,model_note_preclass,,1,1,1,1
 access_patient_tag,access_patient_tag,model_patient_tag,,1,1,1,1
 access_clinician_impressionelbow,access_clinician_impressionelbow,model_clinician_impressionelbow,,1,1,1,1
@@ -133,6 +138,8 @@ access_physician_consultation,access_physician_consultation,model_physician_cons
 
 
 
+=======
+>>>>>>> origin/main
 
 
 
